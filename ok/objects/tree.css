@@ -1,0 +1,68 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+.OK_TREE {}
+
+.OK_TREE .nav
+{
+    padding-right: 2px;
+    white-space: nowrap;
+}
+
+.OK_TREE .icon
+{
+    padding-right: 2px;
+}
+
+.OK_TREE .item,
+.OK_TREE .changed,
+.OK_TREE .selected,
+.OK_TREE .blured,
+.OK_TREE .disabled
+{
+    padding: 4px;
+
+    white-space: nowrap;
+
+    color: $text;
+
+    font-size: 14px;
+    line-height: 32px;
+}
+
+.OK_TREE .selected,
+.OK_TREE .selected *
+{
+    background: $highlight !important;
+    color: $highlighttext !important;
+}
+
+.OK_TREE .blured,
+.OK_TREE .blured *
+{
+    color: $inactivetext !important;
+    background-color: $inactive !important;
+}
+
+.OK_TREE .disabled,
+.OK_TREE .disabled *
+{
+    color: $graytext !important;
+}
+
+.OK_TREE .disabled img
+{
+    opacity: 0.4;
+}
+

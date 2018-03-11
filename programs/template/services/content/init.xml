@@ -1,0 +1,41 @@
+<ok>
+	<interface>
+
+        <box2 id="CONTENT_BOX" orientation="vertical">
+            <div class="OK_NATIVE_STATUSBAR" height="2" style="background: $primary; overflow: hidden;"/>
+            <box2 id="CONTENT_TOOLBAR" height="44" style="background: $primary;">
+                <spacer width="42"/>
+                <div class="SECTION_TITLE">Content Template</div>
+                <button width="40" id="TOGGLE_CONTENT_HELP" class="TBBTN" ontoggle="ok.route(e, _ok.content.help);" type="toggle">
+                    <span class="fa fa-question-circle" style="font-size: 22px;"/>
+                </button>
+                <spacer width="2"/>
+            </box2>
+            <div height="2" style="background: $primary; overflow: hidden;"/>
+            <split id="SPLIT_CONTENT_HELP" lead="right" size="320" barsize="0" onbeforeresize="ok.route(e, _ok.content.help);" onresize="ok.route(e, _ok.content.help);" style="overflow: hidden;">
+                <div id="CONTENT_BACKGROUND" class="CONTENT_BACKGROUND">
+                    <image id="CONTENT_BACKGROUND_IMAGE" src="page-bg.jpg" style="position: absolute; left: 0; top: 0; opacity: 0.6; height: 100%; width: auto;"/>
+                    <div id="CONTENT_BACKGROUND_GRADIENT" class="CONTENT_BACKGROUND_GRADIENT"/>
+                    <div id="CONTENT_SPINNER" class="OK_SPINNER" style="position: absolute; left: 50%; bottom: 10%;">
+                        <span id="OK_PROGRESS_PAGE" class="OK_PROGRESS_PCT"/>
+                        <div/><div/><div/><div/>
+                    </div>
+                </div>
+                <scrollbox padding="12" style="background: $threedface;">
+                    <div class="SECTION_HELP" height="auto">
+                        <h3>Hello, "OK"!</h3>
+
+                        <p>OK is a W3C-compliant software development model and run-time engine to <b>quickly prototype solutions that scale</b>.</p>
+
+                        <p>OK provides <b>developer-style prototyping</b> and explores the idea of employing <b>objects that extend their properties and methods between multiple programming languages</b>, in this case between PHP, JavaScript, XML (XHTML) and CSS scripting languages - arguably the most popular toolset in the history of the Web.</p>
+
+                        <p><b>OK is open source and you can run it in minutes</b>, since it does not have any dependencies, except a PHP-enabled Web Server. Fork OK from GitHub:</p>
+
+                        <p><a href="https://github.com/lubodyer/ok" target="_blank">https://github.com/lubodyer/ok</a>&#160;<span class="fa fa-external-link" style="font-size: 14px;"/></p>
+                    </div>
+                </scrollbox>
+            </split>
+        </box2>
+
+	</interface>
+</ok>

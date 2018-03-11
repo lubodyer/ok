@@ -1,0 +1,118 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+.OK_BUTTON_OUT
+{
+    border: 1px solid #003C74;
+    background-color: $threedface;
+    border-radius: 4px;
+}
+
+.OK_BUTTON_IN
+{
+    padding: 2px;
+    border-top: 1px solid $threedhighlight;
+    border-left: 1px solid $threedhighlight;
+    border-bottom: 1px solid $threedshadow;
+    border-right: 1px solid $threedshadow;
+    border-radius: 4px;
+}
+
+.OK_BUTTON_OVER_OUT
+{
+    border: 1px solid #003C74;
+    background-color: $threedface;
+    border-radius: 4px;
+}
+
+.OK_BUTTON_OVER_IN
+{
+    padding: 1px;
+    border-top: 2px solid #FDD889;
+    border-left: 2px solid #FAC358;
+    border-bottom: 2px solid #E59700;
+    border-right: 2px solid #FAC459;
+    border-radius: 4px;
+}
+
+.OK_BUTTON_FOCUSED_OUT
+{
+    border-radius: 4px;
+    border: 1px solid #003C74;
+    background-color: $threedface;
+}
+
+.OK_BUTTON_FOCUSED_IN
+{
+    padding: 1px;
+    border-radius: 2px;
+    border-top: 2px solid #BCD4F6;
+    border-left: 2px solid #A0BEEC;
+    border-bottom: 2px solid #6982EE;
+    border-right: 2px solid #A0BEEC;
+}
+
+.OK_BUTTON_DOWN_OUT
+{
+    border: 1px solid #003C74;
+    background-color: #F0F0EA;
+}
+
+.OK_BUTTON_DOWN_IN
+{
+    padding: 3px 1px 1px 3px;
+    border-top: 1px solid $threedshadow;
+    border-left: 1px solid $threedshadow;
+    border-bottom: 1px solid $threedhighlight;
+    border-right: 1px solid $threedhighlight;
+}
+
+.OK_BUTTON_DOWN_OVER_OUT
+{
+    border: 1px solid #003C74;
+    background-color: #F0F0EA;
+}
+
+.OK_BUTTON_DOWN_OVER_IN
+{
+    padding: 3px 1px 1px 3px;
+    border-top: 1px solid $threedshadow;
+    border-left: 1px solid $threedshadow;
+    border-bottom: 1px solid $threedhighlight;
+    border-right: 1px solid $threedhighlight;
+}
+
+.OK_BUTTON_DISABLED_OUT
+{
+    border: 1px solid #C9C7BA;
+    background-color: $threedface;
+    border-radius: 4px;
+}
+
+.OK_BUTTON_DISABLED_IN
+{
+    padding: 2px;
+    border: 1px solid $threedface;
+    border-radius: 4px;
+}
+
+.OK_BUTTON_DISABLED_IN *
+{
+    color: $graytext;
+}
+
+.OK_BUTTON_DISABLED_IN img
+{
+    opacity: 0.4;
+}

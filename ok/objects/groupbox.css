@@ -1,0 +1,56 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+.OK_GROUPBOX
+{
+
+}
+
+.OK_GROUPBOX_HEADER
+{
+}
+
+.OK_GROUPBOX_TITLE
+{
+    width: 1px;
+    color: $group;
+    white-space: nowrap;
+    font-size: 11px;
+    line-height: 11px;
+}
+
+.OK_GROUPBOX_TOP_LEFT
+{
+    line-height:1px;
+    border-left: 1px solid $border;
+    border-top: 1px solid $border;
+    border-top-left-radius: 4px;
+}
+
+.OK_GROUPBOX_TOP_RIGHT
+{
+    line-height:1px;
+    border-right: 1px solid $border;
+    border-top: 1px solid $border;
+    border-top-right-radius: 4px;
+}
+
+.OK_GROUPBOX_BOTTOM
+{
+    border-right: 1px solid $border;
+    border-left: 1px solid $border;
+    border-bottom: 1px solid $border;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}

@@ -1,0 +1,210 @@
+<ok>
+	<interface>
+
+            <split id="SPLIT_MESSAGING" lead="right" size="320" barsize="0" onbeforeresize="ok.route(e, _ok.messaging);" onresize="ok.route(e, _ok.messaging);" style="background: $threedface; display: none;">
+                <split id="SPLIT_MAIN_MENU" lead="left" size="280" barsize="0" barcolor="transparent" onbeforecancel="ok.route(e, _ok.menu);" onbeforeresize="ok.route(e, _ok.menu);" onresize="ok.route(e, _ok.menu);">
+                    <panel border="flat" bgcolor="$threedface" style="box-shadow: 0 0 6px rgba(0,0,0,0.64);">
+                        <box2 orientation="vertical">
+                             <panel height="180" bgcolor="$primary">
+
+                                 <image src="menu-bg.png" style="position: absolute; left: 0; top: 0; opacity: 0.4;"/>
+                                 <image src="menu-title.png" style="position: absolute; left: 0; top: 0;"/>
+
+                                <box2 height="48" style="position: absolute; left 0; bottom: 2px;">
+                                    <spacer width="2"/>
+                                    <button id="USER_PROFILE_BTN" tabindex="-1" class="TBBTN" onaction="ok.route(e, _ok.core);" title="Account Profile..." align="left">
+                                        <div style="display: inline-block; float: left; line-height: 38px; margin-right: 8px;">
+                                            <span class="fa fa-user-circle" style="font-size: 22px;"/>
+                                        </div>
+                                        <div style="font-size: 14px; line-height: 20px; color: $primarytext; padding-left: 12px;">
+                                            Anonymous User
+                                        </div>
+                                        <div style="font-size: 12px; font-weight: bold; line-height: 16px; color: $primarytext; padding-left: 12px;">
+                                            Welcome! Please, sign in...
+                                        </div>
+                                    </button>
+                                    <spacer width="2"/>
+                                    <button id="TOGGLE_MESSAGING" tabindex="-1" width="40" class="TBBTN" ontoggle="ok.route(e, _ok.messaging);" title="Toggle messaging..." type="toggle">
+                                        <span class="fa fa-comments" style="font-size: 22px;"/>
+                                        <div id="MESSAGING_UNREAD" class="UNREAD_COUNT" style="display: block;">1</div>
+                                    </button>
+                                    <spacer width="2"/>
+                                </box2>
+                             </panel>
+                             <scrollbox id="MAIN_MENU">
+                                 <panel id="MAIN_MENU_NOTIFICATION" height="40" valign="middle" align="center" padding="6" bgcolor="$threeddarkface">
+                                    <span class="fa fa-info-circle" style="color: $highlight; font-size: 18px; margin-right: 6px;"/>
+                                    <span>You have <a href="javascript: void(0);" onaction="ok.get('TOGGLE_MESSAGING').setValue(1);">6 new messages</a>.</span>
+                                 </panel>
+                                <div class="MAIN_MENU_TITLE" style="margin-top: 12px;">Main Menu</div>
+                                <button id="ok://content" class="MMBTN" height="40" align="left" onaction="_ok.core.activate('content');">
+                                    <span class="fa fa-question" style="font-size: 20px;"></span>
+                                    <span>&#160;&#160;Content Template...</span>
+                                </button>
+                                <button id="ok://module" class="MMBTN" height="40" align="left" onaction="_ok.core.activate('module');">
+                                    <span class="fa fa-file" style="font-size: 16px;"></span>
+                                    <span>&#160;&#160;Module Template...</span>
+                                </button>
+                                <div class="MAIN_MENU_TITLE">Contact</div>
+                                <p style="font-size: 13.5px; margin-left: 12px; padding-right: 24px; margin-top: 6px;">
+                                    Feedback? Bugs? Please let us know at:
+                                    <a href="mailto:ok@okay-os.com" style="font-weight: bold;">ok@okay-os.com</a>
+                                </p>
+                                <div class="MAIN_MENU_TITLE">Summary</div>
+                                <p style="font-size: 13.5px; margin-left: 12px; padding-right: 24px; margin-top: 6px; margin-bottom: 6px; color: $secondary;">
+                                    <image src="okay-os-qr.png" style="float: right; margin-left: 12px; margin-bottom: 12px; border: 1px solid #E5E5E5;"/>
+                                    You are invited to explore this responsive template by accessing it on different devices or by resizing your window (or using the responsive toolset of your browser) if you are on a desktop.
+                                    Scan the QR code to easily access this template on a mobile device.
+                                </p>
+                             </scrollbox>
+                        </box2>
+                    </panel>
+                    <panel>
+                        <deck id="MODULES_DECK" onactivate="ok.route(e, _ok.core);" active="0">
+                            <panel align="center" valign="middle">
+                                <div class="OK_SPINNER">
+                                    <span id="OK_PROGRESS_MODULE" class="OK_PROGRESS_PCT"/>
+                                    <div/><div/><div/><div/>
+                                </div>
+                            </panel>
+                        </deck>
+                        <button id="TOGGLE_MENU" width="40" height="44" class="TBBTN" ontoggle="ok.route(e, _ok.menu);" type="toggle" style="position:absolute; left: 2px; top: 2px; display: none;">
+                            <span class="fa fa-bars" style="font-size: 22px;"/>
+                        </button>
+                    </panel>
+                </split>
+                <box2 id="MESSAGING_BOX" orientation="vertical">
+                    <div class="OK_NATIVE_STATUSBAR" height="2" style="background: $primary; overflow: hidden;"/>
+                    <box2 id="MESSAGING_TOOLBAR" height="44" style="background: $primary;">
+                        <spacer width="42"/>
+                        <div class="SECTION_TITLE">Integrations</div>
+                        <button id="MESSAGING_MENU" arrow="0" tabindex="-1" width="40" class="TBBTN">
+							<span class="fa fa-ellipsis-v" style="font-size: 18px;"/>
+                            <menu>
+                                <menuitem onaction="ok.route('expand', _ok.messaging);">
+                                    <span class="fa fa-expand" style="font-size: 18px; line-height: 24px;"/>
+                                    <span style="line-height: 24px; margin-left: 8px;">Expand</span>
+                                </menuitem>
+                                <menuseparator/>
+                                <menuitem onaction="ok.get('TOGGLE_MESSAGING').setValue(0);">
+                                    <span class="fa fa-window-close" style="font-size: 20px; line-height: 24px;"/>
+                                    <span style="line-height: 24px; margin-left: 8px;">Close</span>
+                                </menuitem>
+                            </menu>
+						</button>
+                        <spacer width="2"/>
+                    </box2>
+                    <div height="2" style="background: $primary; overflow: hidden;"/>
+                    <box2 orientation="vertical">
+                        <scrollbox style="background: $threedlightface;">
+                            <div padding="16">
+
+                                <div width="auto" height="auto" style="position: relative; overflow: hidden; margin-bottom: 12px;">
+                                    <div style="padding-left: 12px; float:right; font-size: 11px; line-height: 11px; font-weight: bold; text-transform: uppercase; background: $threedlightface; color: $primary;">Unread Messages</div>
+                                    <div style="width: 100%; height:1px; margin-top: 6px; border-top: 1px solid $primary;"/>
+                                </div>
+
+                                <div class="MSG1">
+                                    <div class="fa fa-caret-left"/>
+                                    Integrations are features, which are supplemental to the core application logic, such as this mock-up of a messaging system.
+                                </div>
+
+                                <div class="MSG1">
+                                    <div class="fa fa-caret-left"/>
+                                    Staying in touch with teammates, customers or partners, or for that matter being interoperable with servers and networks are just some of the examples to save time and money, and bring new opportunities.
+                                </div>
+
+                                <div class="MSG2">
+                                    <div class="fa fa-caret-right"></div>
+                                    Important as they are, integrations often are a major source of distraction. Being in touch is important but the "mute button" is importanter ;)
+                                </div>
+
+                                <div class="MSG1">
+                                    <div class="fa fa-caret-left"/>
+                                    Indeed they are. That is why integrations start to appear by default on highest viewport resolutions with plenty of visual space - above 1640px.
+                                </div>
+
+                                <div class="MSG1">
+                                    <div class="fa fa-caret-left"></div>
+                                    Until then, Integrations have their space for notifications in the Main Menu. And, of course, you can turn them off.
+                                </div>
+
+
+                                <p></p>
+                            </div>
+                        </scrollbox>
+                        <panel height="46" bgcolor="$background">
+                            <box2>
+                                <panel style="padding: 6px; padding-right: 0;">
+                                    <input title="Enter Message..."/>
+                                </panel>
+                                <button width="40" class="TB">
+                                    <span class="fa fa-send" style="font-size: 18px;"/>
+                                </button>
+                            </box2>
+                        </panel>
+                    </box2>
+                </box2>
+            </split>
+
+        <sidebar id="ACTION" parent_id="SPLIT_MESSAGING" style="max-width: 380px;">
+            <box2 id="ACTION_BOX" orientation="vertical">
+                <div class="OK_NATIVE_STATUSBAR" height="2" style="background: $primary; overflow: hidden;"/>
+                <box2 id="ACTION_TOOLBAR" height="44" style="background: $primary;">
+                    <button id="ACTION_HIDE" tabindex="-1" width="40" class="TBBTN" onaction="ok.get('ACTION').hide();">
+                        <span class="fa fa-angle-left" style="font-size: 18px;"/>
+                    </button>
+                    <div class="SECTION_TITLE">Side Channel</div>
+                    <spacer width="40"/>
+                </box2>
+                <div height="2" style="background: $primary; overflow: hidden;"/>
+                <panel padding="16">
+                    <p>Actions modify the interface of the main view or continue the experience into a Side Channel where additional options can be presented.</p>
+
+                    <p>Use of side channels is encouraged when functionality can be reused across modules.</p>
+
+                    <p>Side Channels can be nested to create advanced interactive scenarios:</p>
+
+                    <button height="" class="BUTTON1" style=" margin-bottom: 12px;" istyle="padding: 12px;" onaction="ok.get('ACTION1').show();">
+                        <span>Continue</span>
+                        <span class="fa fa-arrow-right" style="color: $graytext; margin-left: 6px;"></span>
+                    </button>
+                    <button height="" class="BUTTON1" istyle="padding: 12px;" onaction="ok.get('ACTION').hide();">
+                        <span class="fa fa-arrow-left" style="color: $graytext; margin-right: 6px;"></span>
+                        <span>Back</span>
+                    </button>
+                </panel>
+            </box2>
+        </sidebar>
+
+        <sidebar id="ACTION1" parent_id="ACTION" style="max-width: 380px;">
+            <box2 id="ACTION_BOX1" orientation="vertical">
+                <div class="OK_NATIVE_STATUSBAR" height="2" style="background: $primary; overflow: hidden;"/>
+                <box2 id="ACTION_TOOLBAR1" height="44" style="background: $primary;">
+                    <button id="ACTION1_HIDE" tabindex="-1" width="40" class="TBBTN" onaction="ok.get('ACTION1').hide();">
+                        <span class="fa fa-angle-left" style="font-size: 18px;"/>
+                    </button>
+                    <button id="ACTION1_HIDE_ALL" tabindex="-1" width="40" class="TBBTN" onaction="ok.get('ACTION1').hide(function () {ok.get('ACTION').hide()});">
+                        <span class="fa fa-angle-double-left" style="font-size: 18px;"/>
+                    </button>
+                    <div class="SECTION_TITLE">Side Channel</div>
+                    <spacer width="40"/>
+                </box2>
+                <div height="2" style="background: $primary; overflow: hidden;"/>
+                <panel padding="16">
+                    <p>Example Side Channel that can be reused to create advanced experiences.</p>
+
+                    <button height="" class="BUTTON1" style="margin-bottom: 12px;" istyle="padding: 12px;" onaction="ok.get('ACTION1').hide();">
+                        <span class="fa fa-arrow-left" style="color: $graytext; margin-right: 6px;"/>
+                        <span>Back</span>
+                    </button>
+                    <button height="" class="BUTTON1" istyle="padding: 12px;" onaction="ok.get('ACTION1').hide(function () {ok.get('ACTION').hide()});">
+                        <span class="fa fa-close" style="color: $graytext; margin-right: 6px;"/>
+                        <span>Close</span>
+                    </button>
+                </panel>
+            </box2>
+        </sidebar>
+
+	</interface>
+</ok>

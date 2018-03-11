@@ -1,0 +1,24 @@
+<application>
+	
+	<!-- SERVICES -->
+	
+	<services default="init">
+        
+        <!-- CORE -->
+		
+		<service id="init" xml="1" js="1" css="1" php="1"/>
+        <service id="core" xml="1" js="1" css="1" php="1"/>
+        
+        <!-- TEMPLATES -->
+        
+        <services id="content" default="init">
+            <service id="init" xml="1" js="1" css="1" target="MODULES_DECK" method="append"/>
+            <service id="page" xml="1" css="1" target="SPLIT_CONTENT_HELP:1" method="append"/>
+        </services>
+        <services id="module" default="init">
+            <service id="init" xml="1" js="1" css="1" target="MODULES_DECK" method="append"/>
+        </services>
+		
+	</services>
+    
+</application>

@@ -1,0 +1,169 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+.OK_SCROLLBAR {
+    background-color: $threedface;
+}
+
+.OK_SCROLLBAR_BUTTON_OUT,
+.OK_SCROLLBAR_BUTTON_OVER_OUT,
+.OK_SCROLLBAR_BUTTON_DOWN_OUT,
+.OK_SCROLLBAR_BUTTON_DOWN_OVER_OUT
+{
+    background: $threedface;
+}
+
+.OK_SCROLLBAR_BUTTON_IN,
+.OK_SCROLLBAR_BUTTON_OVER_IN,
+.OK_SCROLLBAR_BUTTON_DOWN_IN,
+.OK_SCROLLBAR_BUTTON_DOWN_OVER_IN
+{
+
+
+}
+
+.OK_SCROLLBAR_THUMB_OUT,
+.OK_SCROLLBAR_THUMB_OVER_OUT,
+.OK_SCROLLBAR_THUMB_DOWN_OUT,
+.OK_SCROLLBAR_THUMB_DOWN_OVER_OUT
+{
+    background: $threedshadow;
+}
+
+.OK_SCROLLBAR_THUMB_OVER_OUT,
+.OK_SCROLLBAR_THUMB_DOWN_OUT,
+.OK_SCROLLBAR_THUMB_DOWN_OVER_OUT
+{
+    background: $threeddarkface;
+}
+
+.OK_SCROLLBAR_THUMB_IN,
+.OK_SCROLLBAR_THUMB_OVER_IN,
+.OK_SCROLLBAR_THUMB_DOWN_IN,
+.OK_SCROLLBAR_THUMB_DOWN_OVER_IN
+{
+}
+
+/*
+.OK_SCROLLBAR_BUTTON_IN, .OK_SCROLLBAR_THUMB_IN
+{
+    background: $threeddarkface;
+}
+
+.OK_SCROLLBAR_BUTTON_OVER_IN, .OK_SCROLLBAR_THUMB_OVER_IN
+{
+    background: $threedlightface;
+}
+
+.OK_SCROLLBAR_BUTTON_DISABLED_OUT
+{
+    border: 1px solid white;
+    border-right: 1px solid #CCCCB9;
+    border-bottom: 1px solid #C4C4AF;
+}
+
+.OK_SCROLLBAR_BUTTON_DISABLED_IN
+{
+    border: 1px solid white;
+    background-color: #EDEDE6;
+
+
+.OK_SCROLLBAR_BUTTON_DISABLED_IN * {
+    color: graytext;
+}
+
+.OK_SCROLLBAR_BUTTON_DISABLED_IN img
+{
+    opacity: 0.4;
+}
+
+.OK_SCROLLBAR_THUMB_DISABLED_OUT
+{
+    visibility: hidden;
+}
+*/
+
+/*
+.OK_SCROLLBAR {
+    background-color: $threedface;
+}
+
+.OK_SCROLLBAR_BUTTON_OUT, .OK_SCROLLBAR_BUTTON_DOWN_OUT, .OK_SCROLLBAR_BUTTON_DOWN_OVER_OUT
+{
+    border: 0px;
+    border-left: 1px solid $threedface;
+    border-top: 1px solid $threedface;
+}
+
+.OK_SCROLLBAR_BUTTON_IN, .OK_SCROLLBAR_BUTTON_DOWN_IN, .OK_SCROLLBAR_BUTTON_DOWN_OVER_IN
+{
+    border: 1px solid $threedface;
+    background-color: $threedface;
+}
+
+
+.OK_SCROLLBAR_THUMB_OUT, .OK_SCROLLBAR_THUMB_OVER_OUT, .OK_SCROLLBAR_THUMB_DOWN_OUT, .OK_SCROLLBAR_THUMB_DOWN_OVER_OUT,
+.OK_SCROLLBAR_BUTTON_OVER_OUT
+{
+    border: 0px;
+    border-left: 1px solid $threedface;
+    border-top: 1px solid $threedface;
+}
+
+.OK_SCROLLBAR_THUMB_IN, .OK_SCROLLBAR_THUMB_OVER_IN, .OK_SCROLLBAR_THUMB_DOWN_IN, .OK_SCROLLBAR_THUMB_DOWN_OVER_IN,
+.OK_SCROLLBAR_BUTTON_OVER_IN
+{
+    border: 1px solid $threedshadow;
+    border-left: 1px solid $threedhighlight;
+    border-top: 1px solid $threedhighlight;
+    background: $threedface;
+}
+
+.OK_SCROLLBAR_BUTTON_IN, .OK_SCROLLBAR_THUMB_IN
+{
+    background: $threeddarkface;
+}
+
+.OK_SCROLLBAR_BUTTON_OVER_IN, .OK_SCROLLBAR_THUMB_OVER_IN
+{
+    background: $threedlightface;
+}
+
+.OK_SCROLLBAR_BUTTON_DISABLED_OUT
+{
+    border: 1px solid white;
+    border-right: 1px solid #CCCCB9;
+    border-bottom: 1px solid #C4C4AF;
+}
+
+.OK_SCROLLBAR_BUTTON_DISABLED_IN
+{
+    border: 1px solid white;
+    background-color: #EDEDE6;
+}
+
+.OK_SCROLLBAR_BUTTON_DISABLED_IN * {
+    color: graytext;
+}
+
+.OK_SCROLLBAR_BUTTON_DISABLED_IN img
+{
+    opacity: 0.4;
+}
+
+.OK_SCROLLBAR_THUMB_DISABLED_OUT
+{
+    visibility: hidden;
+}
+*/

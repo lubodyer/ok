@@ -1,0 +1,75 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+.OK_PANEL_EMPTY_OUT
+{
+    border: 0px;
+}
+
+.OK_PANEL_FLAT_OUT
+{
+    border: 0px;
+}
+
+.OK_PANEL_INSET_OUT
+{
+    border-top: 1px solid $threedshadow;
+    border-left: 1px solid $threedshadow;
+    border-bottom: 1px solid $threedhighlight;
+    border-right: 1px solid $threedhighlight;
+}
+
+.OK_PANEL_INSET_OUT
+{
+    border-top: 1px solid $threedshadow;
+    border-left: 1px solid $threedshadow;
+    border-bottom: 1px solid $threedhighlight;
+    border-right: 1px solid $threedhighlight;
+}
+
+.OK_PANEL_OUTSET_OUT
+{
+    border-top: 1px solid $threedhighlight;
+    border-left: 1px solid $threedhighlight;
+    border-bottom: 1px solid $threedshadow;
+    border-right: 1px solid $threedshadow;
+}
+
+.OK_PANEL_BAR_OUT
+{
+    border-top: 1px solid $threedhighlight;
+    border-bottom: 1px solid $threedshadow;
+}
+
+.OK_PANEL_BARBOTTOM_OUT
+{
+    border-top: 1px solid $threedhighlight;
+}
+
+.OK_PANEL_HBAR_OUT
+{
+    border-top: 1px solid $threedhighlight;
+    border-bottom: 1px solid $threedshadow;
+}
+
+.OK_PANEL_VBAR_OUT
+{
+    border-left: 1px solid $threedhighlight;
+    border-right: 1px solid $threedshadow;
+}
+
+.OK_PANEL_BOX_OUT
+{
+    border: 1px solid $border;
+}

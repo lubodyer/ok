@@ -1,0 +1,5 @@
+<application title="OK.OS" version="5.0">
+	<services>
+		<service id="log" php="1"/>
+	</services>	
+</application>

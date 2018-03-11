@@ -1,0 +1,59 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+.OK_DIALOG,
+.OK_DIALOG_FOCUSED
+{
+    display: block;
+    position: absolute;
+
+    padding: 0px;
+
+    overflow: hidden;
+
+    background-color: $threedface;
+    box-shadow: 1px 1px 5px 1px $threedshadow;
+}
+
+.OK_DIALOG
+{
+    border: 4px solid $highlight;
+}
+
+.OK_DIALOG_FOCUSED
+{
+    border: 4px solid $highlight;
+}
+
+.OK_DIALOG_FOCUS
+{
+    display: block;
+    position: absolute;
+}
+
+.OK_DIALOG_INACTIVE
+{
+    border: 4px solid $inactivedialog;
+}
+
+.OK_DIALOG_COVER
+{
+    position: absolute;
+    display: block;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.42);
+}

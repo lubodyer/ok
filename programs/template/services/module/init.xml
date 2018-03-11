@@ -1,0 +1,189 @@
+<ok>
+	<interface>
+
+        <box2 id="MODULE_BOX" orientation="vertical">
+            <div class="OK_NATIVE_STATUSBAR" height="2" style="background: $primary; overflow: hidden;"/>
+            <box2 id="SECTION_TOOLBAR" height="44" style="background: $primary;">
+                <spacer width="84"/>
+                <div class="SECTION_TITLE">Module Title</div>
+                <button width="40" id="TOGGLE_MODULE_EDIT" class="TBBTN" ontoggle="ok.route(e, _ok.module);" type="toggle">
+                    <span class="fa fa-pencil" style="font-size: 22px;"/>
+                </button>
+                <spacer width="2"/>
+                <button width="40" id="TOGGLE_MODULE_HELP" class="TBBTN" ontoggle="ok.route(e, _ok.module.help);" type="toggle">
+                    <span class="fa fa-question-circle" style="font-size: 22px;"/>
+                </button>
+                <spacer width="2"/>
+            </box2>
+            <div height="2" style="background: $primary; overflow: hidden;"/>
+            <split id="SPLIT_MODULE_HELP" lead="right" size="320" barsize="0" barcolor="transparent" onbeforeresize="ok.route(e, _ok.module.help);" onresize="ok.route(e, _ok.module.help);">
+                <split id="SPLIT_MODULE_CONTENT" lead="right" size="50%" min="320" barsize="6" barcolor="$threedface" onbeforeresize="ok.route(e, _ok.module);" onresize="ok.route(e, _ok.module);">
+                    <box2 id="MODULE_NAVIGATION_BOX" orientation="vertical">
+                        <toolbar height="50" padding="4" border="flat">
+                            <button onaction="ok.route(e, _ok.core);">
+                                <span class="fa fa fa-caret-square-o-right" style="color: $border; margin-right: 6px;"/>
+                                <span>Action 1...</span>
+                            </button>
+                            <toolbarseparator/>
+                            <button onaction="ok.route(e, _ok.core);">
+                                <span class="fa fa fa-caret-square-o-right" style="color: $border; margin-right: 6px;"/>
+                                <span>Action 2...</span>
+                            </button>
+                        </toolbar>
+                        <panel bgcolor="$background" height="170">
+                            <tree id="MODULE_NAVIGATION" onbeforeselect="return ok.route(e, _ok.module);" onselect="return ok.route(e, _ok.module);">
+                                <treenode id="MODULE_ITEM_1" expanded="1">
+                                    <span class="fa fa-bullseye FA_ICON"/>
+                                    <span id="MODULE_ITEM_1_TITLE">Module Item 1</span>
+                                    <span id="MODULE_ITEM_1_CHECKED" class="TREE_STATUS STATUS_GREEN" style="display: none;">
+                                        <span class='fa fa-check'/>
+                                        Checked
+                                    </span>
+                                    <span id="MODULE_ITEM_1_SELECTED" class="TREE_STATUS STATUS_RED" style="display: none;">
+                                        <span class='fa fa-circle'/>
+                                        Selected
+                                    </span>
+                                    <treenode id="MODULE_SUBITEM_1">
+                                        <span class="fa fa-bullseye FA_ICON"/>
+                                        <span id="MODULE_SUBITEM_1_TITLE">Module SubItem 1</span>
+                                        <span id="MODULE_SUBITEM_1_CHECKED" class="TREE_STATUS STATUS_GREEN">
+                                            <span class='fa fa-check'/>
+                                            Checked
+                                        </span>
+                                        <span id="MODULE_SUBITEM_1_SELECTED" class="TREE_STATUS STATUS_RED" style="display: none;">
+                                            <span class='fa fa-circle'/>
+                                            Selected
+                                        </span>
+                                    </treenode>
+                                    <treenode id="MODULE_SUBITEM_2">
+                                        <span class="fa fa-bullseye FA_ICON"/>
+                                        <span id="MODULE_SUBITEM_2_TITLE">Module SubItem 2</span>
+                                        <span id="MODULE_SUBITEM_2_CHECKED" class="TREE_STATUS STATUS_BLUE" style="display: none;">
+                                            <span class='fa fa-check'/>
+                                            Checked
+                                        </span>
+                                        <span id="MODULE_SUBITEM_2_SELECTED" class="TREE_STATUS STATUS_RED">
+                                            <span class='fa fa-circle'/>
+                                            Selected
+                                        </span>
+                                    </treenode>
+                                </treenode>
+                                <treenode id="MODULE_ACTION_1" onselect="ok.route('action', _ok.core);">
+                                    <span class="fa fa-caret-square-o-right FA_ICON"/>
+                                    <span>Module Action 3...</span>
+                                    <span class="TREE_STATUS STATUS_PURPLE">
+                                        <span class='fa fa-long-arrow-right'/>
+                                        Side Channel
+                                    </span>
+                                </treenode>
+                            </tree>
+                        </panel>
+                        <scrollbox padding="12">
+                            <div style="border-top: 3px solid $primary; padding: 12px; padding-top: 6px;">
+                                <h3>Structured Data</h3>
+
+                                <p>You can extend this Template to create Modules that allow end-users to interact with structured data. Find out more in the <a href="javascript: _ok.core.point(_ok.module.help, 2);">Help Section</a>.</p>
+
+                                <div class="PAGE_NAV">
+                                    <button height="40" label="Toggle Edit" class="BUTTON1" wrap="1" width="100%" style="margin-bottom: 12px;" onaction="ok.get('TOGGLE_MODULE_EDIT').setValue(!ok.get('TOGGLE_MODULE_EDIT').getValue());" tabindex="-1"/>
+                                    <button height="40" label="Toggle Help" class="BUTTON1" width="100%" onaction="ok.get('TOGGLE_MODULE_HELP').setValue(!ok.get('TOGGLE_MODULE_HELP').getValue());" tabindex="-1"/>
+                                </div>
+
+                                <p>The user interface of an OK Program is built out of boxes, split components and decks that, with the help of the application model, are "smart" enough to adapt themselves to the changes of their assigned visual space without compromising the functionality flow.</p>
+
+                                <p>Trees and grids provide access to the data and tabs, toolbars, buttons, inputs objects and others are available to organize data management.</p>
+
+                            </div>
+                        </scrollbox>
+                    </box2>
+                    <deck id="MODULE_DECK">
+                        <panel padding="24">
+                            <div width="auto" style="position: relative; top: 21px; background: $background; padding: 24px; font-size: 16px; line-height: 24px; font-weight: bold; color: $graytext;">
+                                Select an item from the Navigation Tree...
+                            </div>
+                        </panel>
+                        <box2 orientation="vertical">
+                            <panel height="50">
+                                <tabbar id="MODULE_TABS" height="50" onactivate="ok.get('MODULE_CONTENT_DECK').activate(this.active);">
+                                    <toolbar border="flat" height="100%" padding="2">
+                                        <button label="Action 4..." onaction="ok.route('action', _ok.core);"/>
+                                    </toolbar>
+                                    <tab id="MODULE_TAB" title="Module Item 1"/>
+                                    <toolbar align="right" border="flat" height="100%" padding="2">
+                                        <button onaction="ok.get('TOGGLE_MODULE_EDIT').setValue(0);">
+                                            <span class="fa fa-close" style="font-size: 16px; color: $graytext"/>
+                                        </button>
+                                    </toolbar>
+                                </tabbar>
+                            </panel>
+                            <deck id="MODULE_CONTENT_DECK">
+                                <box2 orientation="vertical">
+                                    <toolbar bgcolor="$threedlightface" align="right" height="46" padding="2" border="flat">
+                                        <button label="Action 5..." onaction="ok.route('action', _ok.core);"/>
+                                    </toolbar>
+                                    <panel height="160" bgcolor="$background" padding="12">
+                                        <div class="LAYOUT_ROW">
+                                            <div class="LAYOUT_COL_25"><label for="MODULE_CHECKBOX">Checkbox</label></div>
+                                            <div class="LAYOUT_COL_75"><checkbox id="MODULE_CHECKBOX" ontoggle="ok.route(e, _ok.module.input);"/></div>
+                                        </div>
+                                        <div class="LAYOUT_ROW">
+                                            <div class="LAYOUT_COL_25"><label for="MODULE_INPUT_TEXT">Input</label></div>
+                                            <div class="LAYOUT_COL_75"><input id="MODULE_INPUT_TEXT" onchange="ok.route(e, _ok.module.input);"/></div>
+                                        </div>
+                                        <div class="LAYOUT_ROW">
+                                            <div class="LAYOUT_COL_25"><label for="MODULE_INPUT_SELECT">Select</label></div>
+                                            <div class="LAYOUT_COL_75"><select id="MODULE_INPUT_SELECT" onchange="ok.route(e, _ok.module.input);">
+                                                <option value="0">Not Selected</option>
+                                                <option value="1">Selected</option>
+                                            </select></div>
+                                        </div>
+                                    </panel>
+                                    <scrollbox padding="12">
+                                        <div style="border-top: 3px solid $primary; padding: 12px; padding-top: 6px;">
+                                            <h3>Advanced Features</h3>
+
+                                            <p>OK guarantees pixel-perfect experience across devices and platforms by abstracting all of the standard interaction objects.</p>
+
+                                            <h3>Coming Soon - Integrated Input</h3>
+
+                                            <image src="cs/feature_syntax_highlighting.gif" style="float: left; margin: 6px;"/>
+                                            <image src="cs/feature_documents.gif" style="float: left; margin: 6px;"/>
+                                            <image src="cs/feature_copy_paste.gif" style="float: left; margin: 6px;"/>
+                                            <image src="cs/feature_preferences.gif" style="float: left; margin: 6px;"/>
+                                            <image src="cs/feature_languages.gif" style="float: left; margin: 6px;"/>
+                                            <image src="cs/feature_find.gif" style="float: left; margin: 6px;"/>
+                                            <image src="cs/feature_undo_and_redo.gif" style="float: left; margin: 6px;"/>
+                                         </div>
+                                    </scrollbox>
+                                </box2>
+                            </deck>
+                        </box2>
+                    </deck>
+                </split>
+                <scrollbox padding="12">
+                    <div class="SECTION_HELP" height="auto">
+                        <h3>Integrated Help</h3>
+
+                        <p>Feature-rich systems need to provide on-the-spot guidance in order to maximize productivity.
+                        Guidance is important to help minimize the learning curve and as a venue to update users in case the UI evolves.</p>
+
+                        <h3>About this Module</h3>
+
+                        <p>This example 3-Channel Module consists of a <a href="javascript: _ok.core.point(_ok.module, 1);">Navigation Channel</a>, a <a href="javascript: _ok.core.point(_ok.module, 2);">Management Channel</a> and an Integrated Help Channel (this channel).</p>
+
+                        <p>The Navigation Channel provides access to data through a tree object, and the purpose of the Management Channel is to manage the attributes of the selected item of the Navigation Tree.</p>
+
+                        <p>Find out more about Modules, Channels and Actions in the <a href="javascript: ok.route('action', 'ok://content');">Content Template</a>.</p>
+
+
+
+
+
+                        <p></p>
+                    </div>
+                </scrollbox>
+            </split>
+        </box2>
+
+	</interface>
+</ok>

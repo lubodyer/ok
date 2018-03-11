@@ -1,0 +1,417 @@
+<ok>
+	<interface>
+        
+        <panel id="MAIN" style="background: $threedface; display: none;">
+            <split id="SPLIT_MESSAGING" lead="right" size="320" barsize="0" onbeforeresize="ok.route(e, _ok.messaging);" onresize="ok.route(e, _ok.messaging);">
+                <split id="SPLIT_MAIN_MENU" lead="left" size="280" barsize="0" barcolor="transparent" onbeforecancel="ok.route(e, _ok.menu);" onbeforeresize="ok.route(e, _ok.menu);" onresize="ok.route(e, _ok.menu);">
+                    <panel border="flat" bgcolor="$threedface" style="box-shadow: 0 0 6px rgba(0,0,0,0.64);">
+                        <box2 orientation="vertical">
+                             <panel height="180" bgcolor="$primary">
+                                 
+                                 <image src="background.png" style="position: absolute; left: 0; top: 0; opacity: 0.4;"/>
+                                 <image src="logo.png" style="position: absolute; left: 0; top: 0;"/>
+                                 
+                                <box2 height="48" style="position: absolute; left 0; bottom: 2px;">
+                                    <spacer width="2"/>
+                                    <button id="USER_PROFILE_BTN" tabindex="-1" class="TBBTN" onaction="ok.route(e, _ok);" title="Account Profile..." align="left">
+                                        <div style="display: inline-block; float: left; line-height: 38px; margin-right: 8px;">
+                                            <span class="fa fa-user-circle" style="font-size: 22px;"/>
+                                        </div>
+                                        <div style="font-size: 14px; line-height: 20px; color: $primarytext; padding-left: 12px;">
+                                            Anonymous User
+                                        </div>
+                                        <div style="font-size: 12px; font-weight: bold; line-height: 16px; color: $primarytext; padding-left: 12px;">
+                                            Welcome! Please, sign in...
+                                        </div>
+                                    </button>
+                                    <spacer width="2"/>
+                                    <button id="TOGGLE_MESSAGING" tabindex="-1" width="40" class="TBBTN" ontoggle="ok.route(e, _ok.messaging);" title="Toggle messaging..." type="toggle">
+                                        <span class="fa fa-comments" style="font-size: 22px;"/>
+                                        <div id="MESSAGING_UNREAD" class="UNREAD_COUNT" style="display: block;">1</div>
+                                    </button>
+                                    <spacer width="2"/>
+                                </box2>
+                             </panel>
+                             <scrollbox id="MAIN_MENU">
+                                <div class="MAIN_MENU_TITLE" style="margin-top: 12px;">Main Menu</div>
+                                <button id="MAIN_MENU_ABOUT" class="MMBTN" height="40" align="left" onaction="ok.get('MODULES').activate(0);" disabled="1">
+                                    <span class="fa fa-question" style="font-size: 20px;"></span>
+                                    <span>&#160;&#160;Content Template...</span>
+                                </button>
+                                <button id="MAIN_MENU_MODULE" class="MMBTN" height="40" align="left" onaction="ok.get('MODULES').activate(1);">
+                                    <span class="fa fa-file" style="font-size: 16px;"></span>
+                                    <span>&#160;&#160;Module Template...</span>
+                                </button>
+                                <div class="MAIN_MENU_TITLE">Contact</div>
+                                <p style="font-size: 13.5px; margin-left: 12px; padding-right: 24px; margin-top: 6px;">
+                                    Feedback? Bugs? Please let us know at: 
+                                    <a href="mailto:ok@okay-os.com" style="font-weight: bold;">ok@okay-os.com</a>
+                                </p>
+                                <div class="MAIN_MENU_TITLE">Summary</div>
+                                <p style="font-size: 13.5px; margin-left: 12px; padding-right: 24px; margin-top: 6px; margin-bottom: 6px; color: $secondary;">
+                                    <image src="okay-os-qr.png" style="float: left; margin-right: 12px; border: 1px solid #E5E5E5;"/>
+                                    You are invited to explore this responsive template by accessing it on different devices or by resizing your window (or using the responsive toolset of your browser) if you are on a desktop.
+                                    Scan the QR code to easily access this template on a mobile device.
+                                </p>
+                                <div class="MAIN_MENU_TITLE">About Main Menu</div>
+                                <p>Main Menu is the Master Module, providing space to list the Modules and the Integrations.</p>
+                                
+                             </scrollbox>
+                        </box2>                    
+                    </panel>
+                    <panel>
+                        <deck id="MODULES" onactivate="ok.route(e, _ok);" active="0">
+                            <box2 id="ABOUT_BOX" orientation="vertical" onresize="ok.route(e, _ok.about);">
+                                <div class="OK_NATIVE_STATUSBAR" height="2" style="background: $primary; overflow: hidden;"/>
+                                <box2 id="ABOUT_TOOLBAR" height="44" style="background: $primary;">
+                                    <spacer width="42"/>                                    
+                                    <div class="SECTION_TITLE">Content Template</div>
+                                    <button width="40" id="TOGGLE_ABOUT_HELP" class="TBBTN" ontoggle="ok.route(e, _ok.about.help);" type="toggle">
+                                        <span class="fa fa-question-circle" style="font-size: 22px;"/>
+                                    </button>
+                                    <spacer width="2"/>
+                                </box2>
+                                <div height="2" style="background: $primary; overflow: hidden;"/>
+                                <split id="SPLIT_ABOUT_HELP" lead="right" size="320" barsize="0" barcolor="transparent" onbeforeresize="ok.route(e, _ok.about.help);" onresize="ok.route(e, _ok.about.help);">
+                                    <scrollbox id="ABOUT" onbeforeresize="ok.route(e, _ok.about);" onresize="ok.route(e, _ok.about);" onscroll="ok.route(e, _ok.about);" style="background: $threedface;">
+                                        
+                                        <div height="40%" id="PAGE_MEDIA" class="PAGE_MEDIA">
+                                            <image id="IMAGE_ABOUT" src="ok.test1.jpg" style="position: absolute; left: 0; top: 0; opacity: 0.6; height: 100%; width: auto;"/>
+                                            <image id="IMAGE_FORK_ME" src="forkme-red.png" style="position: absolute; top: 0; right: 0; opacity: 1;"/>
+                                            <div id="PAGE_MEDIA_GRADIENT" class="PAGE_MEDIA_GRADIENT"/>
+                                        </div>
+                                        <div id="PAGE_WRAPPER" width="auto" height="auto" class="PAGE_WRAPPER">
+                                            <div class="PAGE_CONTENT">
+                                                
+                                                <h1>Responsive &amp; Scaleable Single-page Applications (SPAs)</h1>
+                                                
+                                                <p>This is the default application template to create new programs using the <a href="https://github.com/lubodyer/ok" target="_blank">OK Model</a>.</p>
+                                                
+                                                <p>This template application builds on "OK" to deliver responsive and scaleable UI &amp; UX architecture that is highly customizable and can be used to create customer-facing, intranet or extranet programs -
+                                                robust, modular, multi-channel system that provides the required <b>information design to scale well from Mobile/IoT to HiDPi device resolutions</b>.</p>
+                                                
+                                                <image src="ok.test2.png" style="height: auto; width: 100%; padding: 24px;"/>
+                                                
+                                                <div style="font-size: 18px; font-weight: bold; color: $graytext; text-align: center;">Resposiveness and Scaleability through Information Design</div>
+                                                
+                                                <h2>User Interface</h2>
+                                                
+                                                <p>Application UI consists of a Main Menu, Module Space and space for Integrations with 3rd-party Systems.</p>
+                                                
+                                                <h3>Main Menu</h3>
+                                                <p>In a modular system, the Main Menu is the Master Module. It is the visual space to list and provide notifications for the Modules and the Integrations.</p>
+                                                    
+                                                <h3>Module Space</h3>
+                                                
+                                                <p>Modules are central to the application logic. Modules split their visual space into Channels in order to provide content, such as this page, or advanced interactions, such as the <a href="">Module Template</a>.</p>
+                                                
+                                                <h3>Integrations</h3>
+                                                
+                                                
+                                                
+                                                <p>an Example 3rd-party Integration, in this case mock-up of a Messaging system.</p>
+                                                
+                                                <p>This multi-channel responsive template can be extended to create scaleable </p>
+                                                <p>This is an example 5-channel responsive template for information-heavy administration. The template system scales well from small mobile or IoT device resolutions to high-end ultra HD displays and </p>
+                                                <p>guarantees effective use of screen space, providing little overhead and fluid user experience that can be extended to create complex, modern Single Page Applications (SPAs) of enterprise scale.</p>
+                                                
+                                            </div>
+                                            <panel height="" padding="24" bgcolor="$threedface" align="center" valign="middle">
+                                                <button label="Module Template..." class="BUTTON1" pack="1" istyle="padding: 12px;" onaction="ok.route('action', 'MAIN_MENU_MODULE');"/>
+                                            </panel>
+                                        </div>
+                                    </scrollbox>
+                                    <scrollbox padding="12">
+                                        <div class="SECTION_HELP" height="auto">
+                                            <h3>Hello, "OK"!</h3>
+                                        
+                                            <p>OK is a W3C-compliant <b>software development model to quickly prototype solutions that scale</b>.</p>
+                                            
+                                            <p>OK explores the idea of employing objects that extend their properties and methods between multiple programing languages, in this case betweeen PHP, JavaScript, XHTML and CSS scripting languages.</p>
+                                            
+                                            <p>OK is open source - find us on github:</p>
+                                            
+                                            <p><a href="https://github.com/lubodyer/ok">https://github.com/lubodyer/ok</a></p>
+                                            
+                                            <h3>About this Template</h3>
+                                            
+                                            <p>As in many comprehensive frameworks, in OK advanced objects are created from templates.</p>
+                                            
+                                            <p>The goal of this application template is to </p>
+                                            
+                                            <p></p>
+                                        </div>
+                                    </scrollbox>
+                                </split>
+                            </box2>
+                            <box2 id="MODULE_BOX" orientation="vertical">
+                                <div class="OK_NATIVE_STATUSBAR" height="2" style="background: $primary; overflow: hidden;"/>
+                                <box2 id="SECTION_TOOLBAR" height="44" style="background: $primary;">
+                                    <spacer width="84"/>
+                                    <div class="SECTION_TITLE">Module Title</div>
+                                    <button width="40" id="TOGGLE_MODULE_EDIT" class="TBBTN" ontoggle="ok.route(e, _ok.module);" type="toggle">
+                                        <span class="fa fa-pencil" style="font-size: 22px;"/>
+                                    </button>
+                                    <spacer width="2"/>
+                                    <button width="40" id="TOGGLE_MODULE_HELP" class="TBBTN" ontoggle="ok.route(e, _ok.module.help);" type="toggle">
+                                        <span class="fa fa-question-circle" style="font-size: 22px;"/>
+                                    </button>   
+                                    <spacer width="2"/>
+                                </box2>
+                                <div height="2" style="background: $primary; overflow: hidden;"/>
+                                <split id="SPLIT_MODULE_HELP" lead="right" size="320" barsize="0" barcolor="transparent" onbeforeresize="ok.route(e, _ok.module.help);" onresize="ok.route(e, _ok.module.help);">
+                                    <split id="SPLIT_MODULE_CONTENT" lead="right" size="50%" min="320" barsize="6" barcolor="$threedface" onbeforeresize="ok.route(e, _ok.module);" onresize="ok.route(e, _ok.module);">
+                                        <box2 id="MODULE_NAVIGATION_BOX" orientation="vertical">
+                                            <toolbar height="50" padding="4" border="flat">
+                                                <button onaction="ok.route(e, _ok);">
+                                                    <span class="fa fa fa-caret-square-o-right" style="color: $border; margin-right: 6px;"/>
+                                                    <span>Action 1...</span>
+                                                </button>
+                                                <toolbarseparator/>
+                                                <button onaction="ok.route(e, _ok);">
+                                                    <span class="fa fa fa-caret-square-o-right" style="color: $border; margin-right: 6px;"/>
+                                                    <span>Action 2...</span>
+                                                </button>
+                                            </toolbar>
+                                            <panel bgcolor="$background" height="170">
+                                                <tree id="MODULE_NAVIGATION" onbeforeselect="return ok.route(e, _ok.module);" onselect="return ok.route(e, _ok.module);">
+                                                    <treenode id="MODULE_ITEM_1" expanded="1">
+                                                        <span class="fa fa-bullseye FA_ICON"/>
+                                                        <span id="MODULE_ITEM_1_TITLE">Module Item 1</span>
+                                                        <span id="MODULE_ITEM_1_CHECKED" class="TREE_STATUS STATUS_GREEN" style="display: none;">
+                                                            <span class='fa fa-check'/>                                                            
+                                                            Checked
+                                                        </span>
+                                                        <span id="MODULE_ITEM_1_SELECTED" class="TREE_STATUS STATUS_RED" style="display: none;">
+                                                            <span class='fa fa-circle'/>
+                                                            Selected
+                                                        </span>
+                                                        <treenode id="MODULE_SUBITEM_1">
+                                                            <span class="fa fa-bullseye FA_ICON"/>
+                                                            <span id="MODULE_SUBITEM_1_TITLE">Module SubItem 1</span>
+                                                            <span id="MODULE_SUBITEM_1_CHECKED" class="TREE_STATUS STATUS_GREEN">
+                                                                <span class='fa fa-check'/>                                                            
+                                                                Checked
+                                                            </span>
+                                                            <span id="MODULE_SUBITEM_1_SELECTED" class="TREE_STATUS STATUS_RED" style="display: none;">
+                                                                <span class='fa fa-circle'/>
+                                                                Selected
+                                                            </span>
+                                                        </treenode>
+                                                        <treenode id="MODULE_SUBITEM_2">
+                                                            <span class="fa fa-bullseye FA_ICON"/>
+                                                            <span id="MODULE_SUBITEM_2_TITLE">Module SubItem 2</span>
+                                                            <span id="MODULE_SUBITEM_2_CHECKED" class="TREE_STATUS STATUS_BLUE" style="display: none;">
+                                                                <span class='fa fa-check'/>                                                            
+                                                                Checked
+                                                            </span>
+                                                            <span id="MODULE_SUBITEM_2_SELECTED" class="TREE_STATUS STATUS_RED">
+                                                                <span class='fa fa-circle'/>
+                                                                Selected
+                                                            </span>
+                                                        </treenode>
+                                                    </treenode>
+                                                    <treenode id="MODULE_ACTION_1" onselect="ok.route('action', _ok);">
+                                                        <span class="fa fa-caret-square-o-right FA_ICON"/>
+                                                        <span>Module Action 3...</span>
+                                                        <span class="TREE_STATUS STATUS_PURPLE">
+                                                            <span class='fa fa-long-arrow-right'/>                                                            
+                                                            Side Channel
+                                                        </span>
+                                                    </treenode>
+                                                </tree>
+                                            </panel>
+                                            <scrollbox padding="12">
+                                                <div style="border-top: 3px solid $primary; padding: 12px; padding-top: 6px;">
+                                                    <h3>Navigation</h3>
+                                                    
+                                                    <p>This example 3-Channel Module consists of Navigation Channel, Management Channel and Integrated Help Channel.</p>
+
+                                                    <div class="PAGE_NAV">
+                                                        <button height="40" label="Edit Mode" class="BUTTON1" wrap="1" width="100%" style="margin-bottom: 12px;"/>
+                                                        <button height="40" label="Toggle Help" class="BUTTON1" width="100%"/>
+                                                    </div>
+                                                    
+                                                    <p>The Navigation channel (or View) is central to the core logic. It is the initial view that is presented on smaller viewports, such as mobile or IoT devices.
+                                                    
+                                                    It can directly provide</p>
+                                                    
+                                                    <p>Module navigation (module items view) is the initial view that is presented on smaller viewports, provided that there is a default main menu item, such as a dashboard. When there is enough visual space (above 720px), navigation view splits its space with the item details view. Navigation view can be additionally extended with filters or other advanced functionality.</p>
+                                                    
+                                                    <span class="fa fa-address-book"></span>
+                                                </div>
+                                            </scrollbox>
+                                        </box2>
+                                        <deck id="MODULE_DECK">
+                                            <panel padding="24">
+                                                <div width="auto" style="position: relative; top: 21px; background: $background; padding: 24px; font-size: 16px; line-height: 24px; font-weight: bold; color: $graytext;">
+                                                    Select an item from the Navigation Tree...
+                                                </div>
+                                            </panel>
+                                            <box2 orientation="vertical">
+                                                <panel height="50">
+                                                    <tabbar id="MODULE_TABS" height="50" onactivate="ok.get('MODULE_CONTENT_DECK').activate(this.active);">
+                                                        <toolbar border="flat" height="100%" padding="2">
+                                                            <button label="Action 4..." onaction="ok.route('action', _ok);"/>
+                                                        </toolbar>
+                                                        <tab id="MODULE_TAB" title="Module Item 1"/>
+                                                    </tabbar>
+                                                </panel>
+                                                <deck id="MODULE_CONTENT_DECK">
+                                                    <box2 orientation="vertical">
+                                                        <toolbar bgcolor="$threedlightface" align="right" height="46" padding="2" border="flat">
+                                                            <button label="Action 5..." onaction="ok.route('action', _ok);"/>
+                                                        </toolbar>
+                                                        <panel height="160" bgcolor="$background" padding="12">
+                                                            <div class="LAYOUT_ROW">
+                                                                <div class="LAYOUT_COL_25"><label for="MODULE_CHECKBOX">Checkbox</label></div>
+                                                                <div class="LAYOUT_COL_75"><checkbox id="MODULE_CHECKBOX" ontoggle="ok.route(e, _ok.module.input);"/></div>
+                                                            </div>
+                                                            <div class="LAYOUT_ROW">
+                                                                <div class="LAYOUT_COL_25"><label for="MODULE_INPUT_TEXT">Input</label></div>
+                                                                <div class="LAYOUT_COL_75"><input id="MODULE_INPUT_TEXT" onchange="ok.route(e, _ok.module.input);"/></div>
+                                                            </div>
+                                                            <div class="LAYOUT_ROW">
+                                                                <div class="LAYOUT_COL_25"><label for="MODULE_INPUT_SELECT">Select</label></div>
+                                                                <div class="LAYOUT_COL_75"><select id="MODULE_INPUT_SELECT" onchange="ok.route(e, _ok.module.input);">
+                                                                    <option value="0">Not Selected</option>
+                                                                    <option value="1">Selected</option>
+                                                                </select></div>
+                                                            </div>
+                                                        </panel>
+                                                        <panel padding="12">
+                                                            <div style="border-top: 3px solid $primary; padding: 12px; padding-top: 6px;">
+                                                                <h3>Management</h3>
+                                                                
+                                                                <p>The purpose of this Channel is to manage the selected item</p>
+                                                                
+                                                                <h3>Coming Soon - Integrated Input</h3>
+                                                                
+                                                                <image src="cs/feature_syntax_highlighting.gif" style="float: left; margin: 6px;"/>
+                                                                <image src="cs/feature_documents.gif" style="float: left; margin: 6px;"/>
+                                                                <image src="cs/feature_copy_paste.gif" style="float: left; margin: 6px;"/>
+                                                                <image src="cs/feature_preferences.gif" style="float: left; margin: 6px;"/>
+                                                                <image src="cs/feature_languages.gif" style="float: left; margin: 6px;"/>
+                                                                <image src="cs/feature_find.gif" style="float: left; margin: 6px;"/>
+                                                                <image src="cs/feature_undo_and_redo.gif" style="float: left; margin: 6px;"/>
+                                                             </div>
+                                                        </panel>
+                                                    </box2>
+                                                    <panel>
+                                                        <p>Interface is built out of boxes, split components and decks, which, with the help of a JavaScript model, are "smart" enough </p>
+                                                    </panel>
+                                                </deck>
+                                            </box2>                                            
+                                        </deck>
+                                    </split>
+                                    <scrollbox padding="12">
+                                        <div class="SECTION_HELP" height="auto">
+                                            <h3>Integrated Help</h3>
+                                        
+                                            <p>Information heavy administrative systems need to provide on-the-spot guidance in order to maximize productivity.</p>
+                                            
+                                            <p>Guidance is important as it helps minimizing the learning curve but also as a venue for updates in case the UI evolves.</p>
+                                            
+                                            <h3>Modules</h3>
+                                            
+                                            <p>Modern applications are built out of Modules, which work together to create an Eco-System. For example, in an online shop, different modules take care of content management and inventory, among all others.</p>
+                                                                                        
+                                            <p>In order to guarantee effective use of screen space through information engineering, this template implements a Module System where Modules are built out of Channels, each Channel providing information and/or data management services.</p>
+                                            
+                                            <p>Modules consist of a Main Channel, in this example Module this is the Navigation Channel, which can use their visual space to span additional Channels...</p>
+                                            
+                                            <p>There is only one active Module at a time, although few can be loaded to interact with each other, depending on the intended user activity.</p>
+                                            
+                                            <p></p>
+                                        </div>
+                                    </scrollbox>
+                                </split>
+                            </box2>
+                        </deck>
+                        <button width="40" height="42" id="TOGGLE_MENU" class="TBBTN" ontoggle="ok.route(e, _ok.menu);" type="toggle" style="position:absolute; left: 2px; top: 2px;">
+                            <span class="fa fa-bars" style="font-size: 22px;"/>
+                        </button>
+                    </panel>
+                </split>
+                <box2 id="MESSAGING_BOX" orientation="vertical">
+                    <div class="OK_NATIVE_STATUSBAR" height="2" style="background: $primary; overflow: hidden;"/>
+                    <box2 id="MESSAGING_TOOLBAR" height="44" style="background: $primary;">
+                        <spacer width="82"/>
+                        <div class="SECTION_TITLE">Messaging</div>
+                        <button id="EXPAND_MESSAGING" tabindex="-1" width="40" class="TBBTN" onaction="ok.route('expand', _ok.messaging);" title="Expand/Collapse Messaging...">
+							<span id="EXPAND_MESSAGING_ICON" class="fa fa-expand" style="font-size: 18px;"/>
+						</button>
+                        <button tabindex="-1" width="40" class="TBBTN" onaction="ok.route({type: 'toggle', source: this}, _ok.messaging);" title="Close Messaging...">
+							<span class="fa fa-window-close" style="font-size: 18px;"/>
+						</button>
+                        <spacer width="2"/>
+                    </box2>
+                    <div height="2" style="background: $primary; overflow: hidden;"/>
+                    <box2 orientation="vertical">
+                        <scrollbox>
+                            <div padding="16">
+                                
+                                <div width="auto" height="auto" style="position: relative; overflow: hidden; margin-bottom: 12px;">
+                                    <div style="padding-left: 12px; float:right; font-size: 11px; line-height: 11px; font-weight: bold; text-transform: uppercase; background: $threedface; color: $primary">Unread Messages</div>
+                                    <div style="width: 100%; height:1px; margin-top: 6px; border-top: 1px solid $primary;"/>                                    
+                                </div>
+                                
+                                <div width="auto" height="auto" style="position: relative; margin-left: 16px; margin-bottom: 16px; padding: 12px; background: $threedlightface; overflow: show;">
+                                    <div class="fa fa-caret-left" style="position: absolute; height: 24px; overflow:hidden; bottom: 0; left: -16px; font-size: 48px; color: $threedlightface;"></div>
+                                    Integrations with 3rd party APIs and Services are increasingly vital to modern application development. Staying in touch with teammates, customers or partners, or for that matter being interoperable with servers and networks, saves time and money, and brings new opportunities.
+                                </div>
+                                
+                                <div width="auto" height="auto" style="position: relative; margin-right: 16px; margin-bottom: 16px; padding: 12px; background: $threeddarkface; overflow: show;">
+                                    <div class="fa fa-caret-right" style="position: absolute; height: 24px; overflow: hidden; bottom: 0; right: -12px; font-size: 48px; color: $threeddarkface;"></div>
+                                    Important as they are, integrations often are major source of distraction. Being in touch is important but the mute button is importanter ;)
+                                </div>
+                                
+                                <div width="auto" height="auto" style="position: relative; margin-left: 16px; margin-bottom: 16px; padding: 12px; background: $threedlightface; overflow: show;">
+                                    <div class="fa fa-caret-left" style="position: absolute; height: 24px; overflow:hidden; bottom: 0; left: -16px; font-size: 48px; color: $threedlightface;"></div>
+                                    Indeed they are. That is why integrations start to appear by default on highest viewport resolutions with plenty of visual space - above 1600px.
+                                </div>
+
+                                <div width="auto" height="auto" style="position: relative; margin-left: 16px; margin-bottom: 16px; padding: 12px; background: $threedlightface; overflow: show;">
+                                    <div class="fa fa-caret-left" style="position: absolute; height: 24px; overflow:hidden; bottom: 0; left: -16px; font-size: 48px; color: $threedlightface;"></div>
+                                    And of course, you can turn them off from the Main Menu.
+                                </div>
+
+                                
+                                <p></p>
+                            </div>
+                        </scrollbox>
+                        <panel height="40" bgcolor="$background">
+                            
+                        </panel>
+                    </box2>
+                </box2>
+            </split>
+        </panel>
+        
+        <sidebar id="ACTION" parent_id="MAIN" style="max-width: 380px;">
+            <box2 id="ACTION_BOX" orientation="vertical">
+                <div class="OK_NATIVE_STATUSBAR" height="2" style="background: $primary; overflow: hidden;"/>
+                <box2 id="ACTION_TOOLBAR" height="44" style="background: $primary;">
+                    <button id="ACTION_HIDE" tabindex="-1" width="40" class="TBBTN" onaction="ok.get('ACTION').hide();">
+                        <span class="fa fa-angle-left" style="font-size: 18px;"/>
+                    </button>
+                    <div class="SECTION_TITLE">Side Channel</div>
+                    <spacer width="40"/>
+                </box2>
+                <div height="2" style="background: $primary; overflow: hidden;"/>
+                <panel padding="16">
+                    <p>Module Actions could modify the interface of the main view or continue the experience into a side view where additional options can be presented.</p>
+                    
+                    <button pack="1">
+                        Continue
+                        <span class="fa fa-arrow-right"></span>
+                    </button>
+                    Side views can be nested as well.
+                    
+                    <p>Use of side channels is encouraged when functionality can be reused across <i>modules</i>.</p>
+                </panel>
+            </box2>
+        </sidebar>
+	
+	</interface>
+</ok>

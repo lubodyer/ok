@@ -1,0 +1,83 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+.OK_CHECKBOX_BOX
+{
+
+}
+
+.OK_CHECKBOX_OUT,
+.OK_CHECKBOX_OVER_OUT,
+.OK_CHECKBOX_FOCUSED_OUT
+{
+    border: 2px solid $highlight;
+/*  background: $background; */
+    border-radius: 2px;
+}
+
+.OK_CHECKBOX_DOWN_OUT,
+.OK_CHECKBOX_DOWN_OVER_OUT,
+.OK_CHECKBOX_DOWN_FOCUSED_OUT
+{
+    border: 2px solid $highlight;
+    background: $highlight;
+    border-radius: 2px;
+}
+
+.OK_CHECKBOX_DISABLED_OUT,
+.OK_CHECKBOX_DOWN_DISABLED_OUT
+{
+    border: 2px solid $graytext;
+    border-radius: 2px;
+}
+
+.OK_CHECKBOX_DOWN_DISABLED_OUT
+{
+    background: $graytext;
+}
+
+.OK_CHECKBOX_IN,
+.OK_CHECKBOX_OVER_IN,
+.OK_CHECKBOX_FOCUSED_IN,
+.OK_CHECKBOX_DOWN_IN,
+.OK_CHECKBOX_DOWN_OVER_IN,
+.OK_CHECKBOX_DOWN_FOCUSED_IN,
+.OK_CHECKBOX_DISABLED_IN,
+.OK_CHECKBOX_DOWN_DISABLED_IN
+{
+    padding: 0px;
+    font-size: 0;
+    line-height: 0;
+}
+
+.OK_CHECKBOX_OVER_IN,
+.OK_CHECKBOX_FOCUSED_IN
+{
+    background: rgba(0,0,0,0.1);
+}
+
+.OK_CHECKBOX_DOWN_OVER_IN,
+.OK_CHECKBOX_DOWN_FOCUSED_IN
+{
+    outline: 2px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.2);
+}
+
+.OK_CHECKBOX_IN img,
+.OK_CHECKBOX_OVER_IN img,
+.OK_CHECKBOX_FOCUSED_IN img,
+.OK_CHECKBOX_DISABLED_IN img
+{
+    visibility: hidden;
+}

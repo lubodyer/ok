@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset='utf-8'/>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0"/>
+<!-- OK_TITLE -->
+<!--
+
+Powered by OK.
+
+Copyright (c) 2004-2018, Lubo Dyer. All Rights Reserved.
+
+This program is protected by copyright laws and international treaties.
+
+-->
+<!-- OK_HEAD -->
+</head>
+<body language="OK_LANGUAGE">
+<!-- OK_BODY -->
+<!-- OK_DIALOGS -->
+<noscript>
+    <div style="position:absolute;left:0px;top:0px;width:100%;height:100%;overflow:auto;"><!-- OK_NOSCRIPT --></div>
+    <div style="position:fixed; left: 0px; bottom: 6px; background-color: red; color: white; font-weight:bold; padding:6px;box-shadow: 2px 2px 2px #999999;">
+        <p>Ooops! This program requires JavaScript to interact with you. Enable JavaScript to continue.</p>
+    </div>
+</noscript>
+</body>
+</html>

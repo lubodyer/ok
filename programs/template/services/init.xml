@@ -1,0 +1,12 @@
+<ok>
+	<interface>
+
+        <panel align="center" valign="middle">
+            <div class="OK_SPINNER">
+                <span id="OK_PROGRESS_INITIAL" class="OK_PROGRESS_PCT"/>
+                <div/><div/><div/><div/>
+            </div>
+        </panel>
+
+	</interface>
+</ok>

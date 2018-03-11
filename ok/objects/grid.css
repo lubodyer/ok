@@ -1,0 +1,148 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+.OK_GRID
+{
+    position: relative;
+    overflow: hidden;
+}
+
+.OK_GRID_HEADER
+{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    overflow: hidden;
+}
+
+.OK_GRID_COL
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    position: absolute;
+    border-top: 1px solid $threedface;
+    border-bottom: 1px solid $threedshadow;
+    background-color: $threedface;
+}
+
+.OK_GRID_COL_OVER
+{
+    background-color: #FAF8F3;
+    border-top: 1px solid #FAF8F3;
+    border-bottom: 1px solid #F9B119;
+}
+
+.OK_GRID_COL_TITLE
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.OK_GRID_COL_TITLE_OVER
+{
+    background-color: #FAF8F3;
+    border-top: 1px solid #FAF8F3;
+    border-bottom: 1px solid #F9B119;
+}
+
+.OK_GRID_COL_RESIZER
+{
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: block;
+    width: 10px;
+/*  cursor: e-resize; */
+}
+
+.OK_GRID_COL_HANDLE
+{
+    top: 0;
+    left: 4px;
+    position: relative;
+    width: 2px;
+    border-left: 1px solid $threedshadow;
+}
+
+.OK_GRID_DATA
+{
+    top: 0;
+    left: 0;
+    position: absolute;
+    overflow: hidden;
+
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.OK_GRID_TEXT
+{
+    padding: 8px;
+    text-align: center;
+    color: $text;
+}
+
+.OK_GRID_ROW
+{
+    position: absolute;
+/*  overflow: hidden; */
+}
+
+.OK_GRID_CELL
+{
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: Hand;
+    cursor: Pointer;
+    text-overflow: ellipsis;
+    line-height: 20px;
+}
+
+.OK_GRID_CELL_SELECTED,
+.OK_GRID_CELL_SELECTED *
+{
+    color: $highlighttext !important;
+    background: $highlight !important;
+}
+
+.OK_GRID_CELL_BLURRED,
+.OK_GRID_CELL_BLURRED *
+{
+    color: $highlighttext !important;
+    background: $highlight !important;
+}
+
+.OK_GRID_TOOLTIP
+{
+    position: absolute;
+    display: block;
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    left: 0px;
+    top: 0px;
+
+    background: #FFFFE1;
+    border: 1px solid black;
+    padding: 1px;
+}

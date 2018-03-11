@@ -1,0 +1,464 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+.OK_TAB_TOP
+{
+    background-color: #F3F3EF;
+    border-top: 1px solid #91A7B4;
+    border-right: 1px solid #91A7B4;
+}
+.OK_TAB_TOP_CELL
+{
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-top: 1px solid #FFFFFF;
+    border-right: 1px solid #EBE8E2;
+    border-bottom: 1px solid #EBEBE5;
+}
+
+.OK_TAB_TOP_OVER
+{
+    background-color: #F3F3EF;
+    border-top: 1px solid #E68B2C;
+    border-right: 1px solid #91A7B4;
+}
+
+.OK_TAB_TOP_CELL_OVER
+{
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-top: 2px solid #FFC73C;
+    border-right: 1px solid #EBE8E2;
+    border-bottom: 1px solid #EBEBE5;
+}
+
+.OK_TAB_TOP_ACTIVE
+{
+    background-color: white;
+    border-top: 1px solid $primary;
+    border-left: 1px solid #919B9C;
+    border-right: 1px solid #919B9C;
+}
+
+.OK_TAB_TOP_ACTIVE_CELL
+{
+    border-top: 2px solid $primary;
+    padding: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.OK_TAB_TOP_INSET
+{
+    background-color: #F3F3EF;
+    border-top: 1px solid #91A7B4;
+    border-left: 1px solid #91A7B4;
+}
+
+.OK_TAB_TOP_INSET_CELL
+{
+    border-top: 1px solid #FFFFFF;
+    border-right: 1px solid #EBE8E2;
+    border-bottom: 1px solid #EBEBE5;
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.OK_TAB_TOP_INSET_OVER
+{
+    background-color: #F3F3EF;
+    border-top: 1px solid #E68B2C;
+    border-left: 1px solid #91A7B4;
+    border-right: 0px;
+}
+
+.OK_TAB_TOP_INSET_CELL_OVER
+{
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-top: 2px solid #FFC73C;
+    border-right: 1px solid #EBEBE5;
+    border-bottom: 1px solid #EBEBE5;
+}
+
+.OK_TAB_TOP_DISABLED
+{
+    display:none;
+}
+
+.OK_TAB_TOP_DISABLED_CELL
+{
+    color: graytext;
+    border-color: #F3F3EF;
+}
+
+
+.OK_TAB_TOP_EMPTY
+{
+    border-bottom: 1px solid $threedshadow;
+}
+
+.OK_TAB_TOP_CONTAINER_ACTIVE
+{
+    border-bottom: 0px;
+}
+
+.OK_TAB_TOP_CONTAINER_INACTIVE
+{
+    border-bottom: 1px solid $threedshadow;
+}
+
+.OK_TAB_TOP_BOX
+{
+    background-color: #5eab1f;
+    border-left: 1px solid #505c68;
+    border-bottom: 1px solid #1a1e21;
+    border-right: 1px solid #1a1e21;
+}
+
+
+
+/*---------------------------------------------------------*/
+
+
+.OK_TAB_BOTTOM
+{
+    background-color: #F3F3EF;
+    border-bottom: 1px solid #91A7B4;
+    border-right: 1px solid #91A7B4;
+}
+
+.OK_TAB_BOTTOM_CELL
+{
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid #FFFFFF;
+    border-right: 1px solid #EBE8E2;
+    border-top: 1px solid #EBEBE5;
+}
+
+.OK_TAB_BOTTOM_OVER
+{
+    background-color: #33383e;
+    border-top: 1px solid #33383e;
+    border-left: 1px solid #33383e;
+    border-bottom: 1px solid #56606c;
+    border-right: 1px solid #56606c;
+}
+
+.OK_TAB_BOTTOM_CELL_OVER
+{
+    padding: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: #ffffff;
+}
+
+.OK_TAB_BOTTOM_ACTIVE
+{
+    background-color: white;
+    border-bottom: 1px solid #E68B2C;
+    border-left: 1px solid #919B9C;
+    border-right: 1px solid #919B9C;
+}
+
+.OK_TAB_BOTTOM_ACTIVE_CELL
+{
+    border-bottom: 2px solid #FFC73C;
+    padding: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.OK_TAB_BOTTOM_INSET
+{
+    background-color: #3d444e;
+    border-top: 1px solid #3d444e;
+    border-right: 1px solid #3d444e;
+    border-bottom: 1px solid #56606c;
+    border-left: 1px solid #56606c;
+}
+
+.OK_TAB_BOTTOM_INSET_CELL
+{
+    padding: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: #6e8fa0;
+}
+
+.OK_TAB_BOTTOM_INSET_OVER
+{
+    background-color: #33383e;
+    border-top: 1px solid #33383e;
+    border-right: 1px solid #33383e;
+    border-bottom: 1px solid #56606c;
+    border-left: 1px solid #56606c;
+}
+
+.OK_TAB_BOTTOM_INSET_CELL_OVER
+{
+    padding: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: #ffffff;
+}
+
+.OK_TAB_BOTTOM_EMPTY
+{
+    border-top: 1px solid #1a1e21;
+}
+
+.OK_TAB_BOTTOM_CONTAINER_ACTIVE
+{
+    border-top: 0px;
+}
+
+.OK_TAB_BOTTOM_CONTAINER_INACTIVE
+{
+    border-top: 1px solid #1a1e21;
+}
+
+.OK_TAB_BOTTOM_BOX
+{
+    background-color: #33383e;
+    border-left: 1px solid #505c68;
+    border-top: 1px solid #505c68;
+    border-right: 1px solid #1a1e21;
+}
+
+/*---------------------------------------------------------*/
+
+
+.OK_TAB_LEFT
+{
+    background-color: #F3F3EF;
+    border-bottom: 1px solid #91A7B4;
+    border-left: 1px solid #91A7B4;
+}
+
+.OK_TAB_LEFT_CELL
+{
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 1px solid #FFFFFF;
+    border-left: 1px solid #EBE8E2;
+    border-top: 1px solid #EBEBE5;
+}
+
+.OK_TAB_LEFT_OVER
+{
+    background-color: #33383e;
+    border-top: 1px solid #33383e;
+    border-right: 1px solid #33383e;
+    border-bottom: 1px solid #56606c;
+    border-left: 1px solid #56606c;
+}
+
+.OK_TAB_LEFT_CELL_OVER
+{
+    padding: 4px;
+    padding-right: 6px;
+    padding-left: 6px;
+    color: #ffffff;
+}
+
+.OK_TAB_LEFT_ACTIVE
+{
+    background-color: white;
+    border-left: 1px solid #E68B2C;
+    border-top: 1px solid #919B9C;
+    border-bottom: 1px solid #919B9C;
+}
+
+.OK_TAB_LEFT_ACTIVE_CELL
+{
+    border-left: 2px solid #FFC73C;
+    padding: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.OK_TAB_LEFT_INSET
+{
+    background-color: #3d444e;
+    border-top: 1px solid #56606c;
+    border-bottom: 1px solid #3d444e;
+    border-right: 1px solid #3d444e;
+    border-left: 1px solid #56606c;
+}
+
+.OK_TAB_LEFT_INSET_CELL
+{
+    padding: 4px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: #6e8fa0;
+}
+
+.OK_TAB_LEFT_INSET_OVER
+{
+    background-color: #33383e;
+    border-right: 1px solid #33383e;
+    border-top: 1px solid #56606c;
+    border-bottom: 1px solid #33383e;
+    border-left: 1px solid #56606c;
+}
+
+.OK_TAB_LEFT_INSET_CELL_OVER
+{
+    padding: 4px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: #ffffff;
+}
+
+.OK_TAB_LEFT_EMPTY
+{
+    border-right: 1px solid #1a1e21;
+}
+
+.OK_TAB_LEFT_CONTAINER_ACTIVE
+{
+    border-right: 0px;
+}
+
+.OK_TAB_LEFT_CONTAINER_INACTIVE
+{
+    border-right: 1px solid #1a1e21;
+}
+
+.OK_TAB_LEFT_BOX
+{
+    background-color: #33383e;
+    border-right: 1px solid #505c68;
+    border-top: 1px solid #505c68;
+    border-bottom: 1px solid #1a1e21;
+}
+
+/*---------------------------------------------------------*/
+
+
+.OK_TAB_RIGHT
+{
+    background-color: #F3F3EF;
+    border-bottom: 1px solid #91A7B4;
+    border-right: 1px solid #91A7B4;
+}
+
+.OK_TAB_RIGHT_CELL
+{
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid #FFFFFF;
+    border-right: 1px solid #EBE8E2;
+    border-top: 1px solid #EBEBE5;
+}
+
+.OK_TAB_RIGHT_OVER
+{
+    background-color: #33383e;
+    border-top: 1px solid #33383e;
+    border-left: 1px solid #33383e;
+    border-bottom: 1px solid #56606c;
+    border-right: 1px solid #56606c;
+}
+
+.OK_TAB_RIGHT_CELL_OVER
+{
+    padding: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: #ffffff;
+}
+
+.OK_TAB_RIGHT_ACTIVE
+{
+    background-color: white;
+    border-right: 1px solid #E68B2C;
+    border-top: 1px solid #919B9C;
+    border-bottom: 1px solid #919B9C;
+}
+
+.OK_TAB_RIGHT_ACTIVE_CELL
+{
+    border-right: 2px solid #FFC73C;
+    padding: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.OK_TAB_RIGHT_INSET
+{
+    background-color: #3d444e;
+    border-top: 1px solid #56606c;
+    border-bottom: 1px solid #3d444e;
+    border-left: 1px solid #3d444e;
+    border-right: 1px solid #56606c;
+}
+
+.OK_TAB_RIGHT_INSET_CELL
+{
+    padding: 4px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: #6e8fa0;
+}
+
+.OK_TAB_RIGHT_INSET_OVER
+{
+    background-color: #33383e;
+    border-left: 1px solid #33383e;
+    border-top: 1px solid #56606c;
+    border-bottom: 1px solid #33383e;
+    border-right: 1px solid #56606c;
+}
+
+.OK_TAB_RIGHT_INSET_CELL_OVER
+{
+    padding: 4px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: #ffffff;
+}
+
+.OK_TAB_RIGHT_EMPTY
+{
+    border-left: 1px solid #1a1e21;
+}
+
+.OK_TAB_RIGHT_CONTAINER_ACTIVE
+{
+    border-left: 0px;
+}
+
+.OK_TAB_RIGHT_CONTAINER_INACTIVE
+{
+    border-left: 1px solid #1a1e21;
+}
+
+.OK_TAB_RIGHT_BOX
+{
+    background-color: #33383e;
+    border-left: 1px solid #505c68;
+    border-top: 1px solid #505c68;
+    border-bottom: 1px solid #1a1e21;
+}

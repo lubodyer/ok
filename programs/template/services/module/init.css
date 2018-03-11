@@ -1,0 +1,102 @@
+
+.PAGE_NAV
+{
+    float: right; 
+    position: relative; 
+    overflow: hidden; 
+    
+    width: 40%; 
+    height: auto; 
+    
+    margin: 12px; 
+    margin-right: 0;
+    margin-top: 0;
+    padding: 12px; 
+    
+    border: 1px solid $threeddarkface; 
+    background: $threedlightface;
+}
+
+/* -- */
+
+.TREE_STATUS {
+	display: inline-block; 
+    margin-left: 6px;
+	padding: 6px;
+
+    font-size: 90%;
+    line-height: 90%;
+	font-weight: bold;
+    
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+}
+
+.TREE_STATUS .fa
+{
+    font-weight: bold;
+}
+
+/* -- */
+
+.STATUS_BLUE {
+	background: #3598dc;
+	color: white;
+}
+
+.STATUS_RED {
+	background: #e7505a;
+	color: white;
+}
+
+.STATUS_CYAN {
+	background: #32c5d2;
+	color: white;
+}
+
+.STATUS_PURPLE {
+	background: #8e44ad;
+	color: white;
+}
+
+.STATUS_GREEN {
+	background: #35aa47;
+	color: white;
+}
+
+.STATUS_GRAY {
+	background: $graytext;
+	color: white;
+}
+
+.STATUS_YELLOW {
+	background: #C49F47;
+	color: white;
+}
+
+.GRAY {
+	color: $graytext;
+}
+
+.RED {
+	color: #e7505a;
+}
+
+.YELLOW {
+	color: #C49F47;
+}
+
+.BLUE {
+	color: #3598dc;
+}
+
+.CYAN {
+	color: #32c5d2;
+}
+
+.PURPLE {
+	color: #8e44ad;
+}
+
+.GREEN {
+	color: #32c5d2;
+}

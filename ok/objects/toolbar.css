@@ -1,0 +1,221 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+.TOOLBAR_SEPARATOR {
+    display:            block;
+    width:              0px;
+    margin-left:        3px;
+    margin-right:       3px;
+    height:             16px;
+    border-left:        1px solid $threedshadow;
+    border-right:       1px solid $threedhighlight;
+}
+
+/*---------------------------------------------------------------------*/
+
+.OK_TOOLBAR_OUT {
+
+}
+
+.OK_TOOLBAR_IN {
+    padding: 2px;
+    border: 1px solid transparent;
+    text-shadow: #FFFFFF 1px 1px;
+    border-radius: 3px;
+}
+
+.OK_TOOLBAR_IN * {
+    color: $text;
+}
+
+.OK_TOOLBAR_FOCUSED_OUT,
+.OK_TOOLBAR_DOWN_FOCUSED_OUT
+{
+    /*background-color: $threedface;*/
+    background-color: $highlight;
+}
+
+.OK_TOOLBAR_FOCUSED_IN
+{
+    padding: 2px;
+    border-top: 1px solid $threedhighlight;
+    border-left: 1px solid $threedhighlight;
+    border-bottom: 1px solid $threedshadow;
+    border-right: 1px solid $threedshadow;
+    border-radius: 3px;
+}
+
+.OK_TOOLBAR_FOCUSED_IN *
+{
+    color: $text;
+}
+
+.OK_TOOLBAR_OVER_OUT
+{
+    background-color: $threedface;
+}
+
+.OK_TOOLBAR_OVER_IN
+{
+    padding: 2px;
+    border-top: 1px solid $threedhighlight;
+    border-left: 1px solid $threedhighlight;
+    border-bottom: 1px solid $threedshadow;
+    border-right: 1px solid $threedshadow;
+    text-shadow: $background 1px 1px;
+    border-radius: 3px;
+}
+
+.OK_TOOLBAR_OVER_IN * {
+    color: $text;
+}
+
+.OK_TOOLBAR_DOWN_OUT
+{
+    background-color: $threedlightshadow;
+}
+
+.OK_TOOLBAR_DOWN_IN,
+.OK_TOOLBAR_DOWN_FOCUSED_IN,
+.OK_TOOLBAR_DOWN_DISABLED_IN
+{
+    padding: 3px 1px 1px 3px;
+    border-top: 1px solid $threedshadow;
+    border-left: 1px solid $threedshadow;
+    border-bottom: 1px solid $threedhighlight;
+    border-right: 1px solid $threedhighlight;
+    text-shadow: $background 1px 1px;
+    border-radius: 3px;
+}
+
+.OK_TOOLBAR_DOWN_OVER_OUT
+{
+}
+
+.OK_TOOLBAR_DOWN_OVER_IN
+{
+    padding: 3px 1px 1px 3px;
+    background-color: $threedhighlight;
+    border-top: 1px solid $threedshadow;
+    border-left: 1px solid $threedshadow;
+    border-bottom: 1px solid $threedhighlight;
+    border-right: 1px solid $threedhighlight;
+    border-radius: 3px;
+}
+
+.OK_TOOLBAR_DOWN_IN, .OK_TOOLBAR_DOWN_IN *,
+.OK_TOOLBAR_DOWN_OVER_IN, .OK_TOOLBAR_DOWN_OVER_IN *
+ {
+    color: $text;
+}
+
+.OK_TOOLBAR_DISABLED_IN
+{
+    padding: 3px;
+}
+
+.OK_TOOLBAR_DISABLED_IN, .OK_TOOLBAR_DISABLED_IN *,
+.OK_TOOLBAR_DOWN_DISABLED_IN, .OK_TOOLBAR_DOWN_DISABLED_IN *
+{
+    color: $graytext;
+}
+
+.OK_TOOLBAR_DISABLED_IN img,
+.OK_TOOLBAR_DOWN_DISABLED_IN img
+{
+    opacity: 0.4;
+}
+
+
+/*---------------------------------------------------------------------*/
+
+.OK_TOOLBAR_MENU_OUT
+{
+
+}
+
+.OK_TOOLBAR_MENU_IN
+{
+    padding: 2px;
+    border: 1px solid $threedface;
+    text-shadow: #FFFFFF 1px 1px;
+}
+
+.OK_TOOLBAR_MENU_IN * {
+    color: $text;
+}
+
+.OK_TOOLBAR_MENU_FOCUSED_OUT
+{
+    background-color: $threedface;
+}
+
+.OK_TOOLBAR_MENU_FOCUSED_IN
+{
+    padding: 2px;
+    border-top: 1px solid $threedhighlight;
+    border-left: 1px solid $threedhighlight;
+    border-bottom: 1px solid $threedshadow;
+    border-right: 1px solid $threedshadow;
+}
+
+.OK_TOOLBAR_MENU_FOCUSED_IN *
+{
+    color: $text;
+}
+
+.OK_TOOLBAR_MENU_OVER_OUT, .OK_TOOLBAR_MENU_DOWN_OUT, .OK_TOOLBAR_MENU_DOWN_OVER_OUT
+{
+    background-color: $threedface;
+}
+
+.OK_TOOLBAR_MENU_OVER_IN, .OK_TOOLBAR_MENU_DOWN_IN, .OK_TOOLBAR_MENU_DOWN_OVER_IN
+{
+    padding: 2px;
+    border-top: 1px solid $threedhighlight;
+    border-left: 1px solid $threedhighlight;
+    border-bottom: 1px solid $threedshadow;
+    border-right: 1px solid $threedshadow;
+    text-shadow: #FFFFFF 1px 1px;
+}
+
+.OK_TOOLBAR_MENU_DOWN_OVER_OUT
+{
+    background-color: $threeddarkface;
+}
+
+.OK_TOOLBAR_MENU_OVER_IN *, .OK_TOOLBAR_MENU_DOWN_IN *, .OK_TOOLBAR_MENU_DOWN_OVER_IN *
+{
+    color: $text;
+}
+
+.OK_TOOLBAR_MENU_DISABLED_OUT
+{
+    background-color: $threedface;
+}
+
+.OK_TOOLBAR_MENU_DISABLED_IN
+{
+    padding: 3px;
+}
+
+.OK_TOOLBAR_MENU_DISABLED_IN, .OK_TOOLBAR_MENU_DISABLED_IN *
+{
+    color: $graytext;
+}
+
+.OK_TOOLBAR_MENU_DISABLED_IN img
+{
+    opacity: 0.4;
+}

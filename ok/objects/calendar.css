@@ -1,0 +1,199 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+.OK_CALENDAR
+{
+    background-color: $threedface;
+}
+
+.OK_CALENDAR_HEADER
+{
+    background-color: $threedface;
+    font-weight: bold;
+}
+
+.OK_CALENDAR_MONTH
+{
+    background-color: $threedface;
+    font-weight: bold;
+}
+
+.OK_CALENDAR_BTN_OUT
+{
+    background-color: $threedface;
+    border: 1px solid transparent;
+}
+
+.OK_CALENDAR_BTN_OVER_OUT
+{
+    background-color: $highlight;
+    color: $highlighttext;
+    border: 1px solid transparent;
+    cursor: Hand;
+    cursor: Pointer;
+}
+
+.OK_CALENDAR_BTN_DOWN_OVER_OUT
+{
+    background-color: $threedface;
+    border: 1px solid transparent;
+    cursor: Hand;
+    cursor: Pointer;
+}
+
+.OK_CALENDAR_BTN_DISABLED_OUT
+{
+    background-color: $threedface;
+    color: $graytext;
+    border: 1px solid transparent;
+}
+
+/* -- */
+
+.OK_CALENDAR_BTNNOW_OUT
+{
+    background-color: $threedface;
+    border: 1px solid transparent;
+}
+
+.OK_CALENDAR_BTNNOW_OVER_OUT
+{
+    background-color: $highlight;
+    color: $highlighttext;
+    border: 1px solid transparent;
+    cursor: Hand;
+    cursor: Pointer;
+}
+
+.OK_CALENDAR_BTNNOW_DOWN_OVER_OUT
+{
+    background-color: $threedface;
+    border: 1px solid transparent;
+    cursor: Hand;
+    cursor: Pointer;
+}
+
+.OK_CALENDAR_BTNNOW_DISABLED_OUT
+{
+    background-color: $threedface;
+    color: $graytext;
+    border: 1px solid transparent;
+}
+
+.OK_CALENDAR_BTNNOW_OUT,
+.OK_CALENDAR_BTNNOW_OVER_OUT,
+.OK_CALENDAR_BTNNOW_DOWN_OVER_OUT,
+.OK_CALENDAR_BTNNOW_DISABLED_OUT
+{
+    font-weight: bold;
+}
+
+/* -- */
+
+.OK_CALENDAR_NAV_OUT
+{
+    background-color: $threedface;
+    border: 1px solid transparent;
+}
+
+.OK_CALENDAR_NAV_OVER_OUT
+{
+    background-color: $highlight;
+    color: $highlighttext;
+    border: 1px solid transparent;
+    cursor: Hand;
+    cursor: Pointer;
+}
+
+.OK_CALENDAR_NAV_DOWN_OVER_OUT
+{
+    background-color: $threedface;
+    border: 1px solid transparent;
+    cursor: Hand;
+    cursor: Pointer;
+}
+
+.OK_CALENDAR_NAV_DISABLED_OUT
+{
+    background-color: $threedface;
+    color: $graytext;
+    border: 1px solid transparent;
+}
+
+/* --- */
+
+.OK_CALENDAR_BTNRANGE_OUT
+{
+    background-color: $highlight;
+    color: $highlighttext;
+    border: 1px solid transparent;
+}
+
+.OK_CALENDAR_BTNRANGE_OVER_OUT
+{
+    background-color: #9C361B;
+    color: $highlighttext;
+    border: 1px solid transparent;
+    cursor: Hand;
+    cursor: Pointer;
+}
+
+.OK_CALENDAR_BTNRANGE_DOWN_OVER_OUT
+{
+    background-color: $threedface;
+    border: 1px solid transparent;
+    cursor: Hand;
+    cursor: Pointer;
+}
+
+.OK_CALENDAR_BTNRANGE_DISABLED_OUT
+{
+    background-color: $highlight;
+    color: $graytext;
+    border: 1px solid transparent;
+}
+
+
+/* --- */
+
+.OK_CALENDAR_BTNRANGE1_OUT
+{
+    background-color: #86ca2f;
+    color: $highlighttext;
+    border: 1px solid transparent;
+}
+
+.OK_CALENDAR_BTNRANGE1_OVER_OUT
+{
+    background-color: $highlight;
+    color: $highlighttext;
+    border: 1px solid transparent;
+    cursor: Hand;
+    cursor: Pointer;
+}
+
+.OK_CALENDAR_BTNRANGE1_DOWN_OVER_OUT
+{
+    background-color: $threedface;
+    border: 1px solid transparent;
+    cursor: Hand;
+    cursor: Pointer;
+}
+
+.OK_CALENDAR_BTNRANGE1_DISABLED_OUT
+{
+    background-color: $highlight;
+    color: $graytext;
+    border: 1px solid transparent;
+}

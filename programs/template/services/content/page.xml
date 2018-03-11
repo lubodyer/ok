@@ -1,0 +1,76 @@
+<ok>
+	<interface>
+
+        <scrollbox id="CONTENT_PAGE_BOX" onbeforeresize="ok.route(e, _ok.content);" onresize="ok.route(e, _ok.content);" onscroll="ok.route(e, _ok.content);" style="display: none;">
+
+            <div id="CONTENT_PAGE_OFFSET"/>
+
+            <div id="CONTENT_PAGE_WRAPPER" width="auto" height="auto" class="CONTENT_PAGE_WRAPPER">
+
+                <div class="PAGE_CONTENT">
+
+                    <h1>Responsive &amp; Scaleable Single-page Applications (SPAs)</h1>
+
+                    <p><span style="color: $graytext;">Summary:</span> OK <span>v.5.1</span>. This is the default application template to create new programs using the <a href="https://github.com/lubodyer/ok" target="_blank">"OK" Model <span class="fa fa-external-link" style="font-size: 14px;"/></a>. You can always find the latest version of this template as the homepage of okay-os.com, showcasing the capabilities of the model to deliver feature-rich content and functional experiences.</p>
+
+                    <h2>About this Template</h2>
+
+                    <p>As in many comprehensive models that are obsessed with code reuse, in "OK" advanced objects are created from templates. This template application implements a model for <b>effective use of visual space</b> in order to scale UI&amp;UX from low-end (Mobile/IoT) to high-end (HiDPi) device resolutions.</p>
+
+                    <div style="position: relative; display: block; width: auto; height: auto; overflow: hidden; text-align: center;">
+                        <image src="information-design.jpg" style="height: auto; width: 100%; max-width: 500px;"/>
+                        <div style="margin-top: 12px; font-size: 14px; text-transform: uppercase; font-weight: bold; text-align: center;">Resposiveness and Scaleability through<br/>Effective Use of Visual Space</div>
+                    </div>
+
+                    <p>The engineering goal of this template is to build on OK and set the foundation of an event-based, modular, multi-channel system, which is highly customizable in order to be extended further to create <b>customer-facing, intranet or extranet programs</b>, ensuring:</p>
+                    <ul>
+                        <li>Scaleable program architecture</li>
+                        <li>Responsive user interface</li>
+                        <li>Fluid user experience</li>
+                    </ul>
+
+                    <p>The practical goal of this template application is to allow a <b>single code base</b>, capable of prototyping and running feature-rich experiences both over the Web and, with the help of the open source community, packaged and compiled to "near native" code for mobiles and desktops, useful even offline.</p>
+
+                    <p>The template application itself contains templates to <b>provide content to end-users</b> as well as to <b>allow end-users to interact with structured data</b>.</p>
+
+                    <h2>Visual Space</h2>
+
+                    <p>The available visual space is divided into a Main Menu, Module Space and space for Integrations. All of them are visible on largest resolutions, above 1640px.</p>
+
+                    <ul>
+                        <li><p><b>Main Menu</b>. In a modular system, the Main Menu is the Master Module. It is the visual space to list and provide notifications for the Modules and the Integrations.</p></li>
+                        <li>
+                            <p><b>Module Space</b>. Designing a modular system is essential to guarantee scalability and effective use of screen space when developing and running feature-rich applications. Modules work together to create an Eco-System.</p>
+
+                            <p>Modules exist as one or more Services on the server and manifest themselves as one or more Channels on the client.</p>
+
+                            <p>There is only one active Module at a time, although few can be loaded to complement each other. Modules split their visual space into Channels in order to provide content, such as this page, or advanced interactions, such as the <a href="javascript: ok.route('action', 'ok://module');">Module Template</a>.</p>
+
+                            <p>End-users use Modules to invoke Actions. Actions can modify the interface of the main view or continue user experience into a <a href="javascript: void(0);" onaction="ok.route(e, _ok.core);">Side Channel</a>.</p>
+                        </li>
+                        <li>
+                            <p><b>Integrations</b>. Integrations are the same as Modules - distinction exists to separate features that can be easily turned off, or not loaded at all, but that can also take over the entire visual space if requested by the end-user.</p>
+
+                            <p>This template provides a mock-up of a messaging system to illustrate the concept of <a href="javascript: _ok.core.point(_ok.messaging, 2);">Integrations</a> within the application workflow.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="PAGE_FOOTER" width="auto" height="auto">
+                    <p>&amp;copy; 2004-2018 Lubo Dyer. All Rights Reserved.</p>
+                    <p>OK is dual licensed under the GNU Affero General Public License (GNU AGPLv3)
+                    and custom commercial license. Note that it is NOT required that applications
+                    using OK be published. The goal is that if you modify the core model or the
+                    objects, you have to contribute those modifications back to the community. To
+                    enable commercial scenarios, OK's default application template (this template) is
+                    provided under the terms of the MIT license.</p>
+                </div>
+
+            </div>
+
+            <a id="GITHUB_FORK" href="https://github.com/lubodyer/ok" target="_blank" style="display: block; position: absolute; top: 0; right: 0; opacity: 1; border: 0 !important;"><image id="IMAGE_FORK_ME" src="fork-me.png"/></a>
+
+        </scrollbox>
+
+	</interface>
+</ok>

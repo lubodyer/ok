@@ -1,0 +1,195 @@
+/**
+ * OK's global stylesheet.
+ *
+ * OK v.5 - okay-os.com
+ *
+ * Copyright (c) 2004-2018 Lubo Dyer. All Rights Reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ *
+ * @package OK
+ */
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: fixed;
+}
+
+body {
+    color: $text;
+    background: $background;
+    overflow: hidden;
+
+    text-rendering: optimizelegibility;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    font-family: "Open Sans", Tahoma, Ubuntu, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 140%;
+}
+
+textarea,
+select,
+select[disabled],
+option,
+input
+{
+	font-family: "Open Sans", Tahoma, Ubuntu, sans-serif;
+
+	font-size: 15px;
+	line-height: 21px;
+
+	background: transparent;
+
+	outline: 0;
+}
+
+input
+{
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    border-radius: 0;
+	-webkit-border-radius: 0;
+
+	background: transparent;
+	color: $text;
+
+	border: 0;
+	border-bottom: 2px solid $border;
+
+	padding: 6px;
+	padding-top: 6px;
+	padding-left: 0;
+	padding-right: 0;
+
+	margin: 0;
+	margin-bottom: 4px;
+	outline: 0;
+}
+
+input:focus
+{
+	border-bottom: 2px solid $highlight;
+}
+
+input:-webkit-autofill
+{
+
+}
+
+input[disabled]
+{
+    color: $graytext;
+	border-bottom: 2px solid transparent;
+}
+
+input[placeholder]
+{
+    text-overflow: ellipsis;
+}
+
+input::placeholder
+{
+    color: $graytext;
+}
+
+select
+{
+	border: 0;
+	border-bottom: 2px solid $border;
+
+	padding: 4px;
+	padding-left: 0;
+    padding-top: 8px;
+
+	margin: 0;
+	outline: 0;
+}
+
+select[disabled]
+{
+	border: 0 !important;
+	border-bottom: 2px solid transparent !important;
+	padding: 6px !important;
+	padding-left: 0 !important;
+
+	color: $graytext !important;
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	text-overflow: "";
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+option {
+    padding: 4px;
+}
+
+table, img, a img {
+    border: 0px;
+}
+
+table, td {
+    empty-cells: show;
+}
+
+form {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+div, span, p, b {
+    cursor: default;
+}
+
+area {
+    cursor: Pointer;
+}
+
+.DRAG_OBJECT {
+    top: 0;
+    left: 0;
+    position: absolute;
+    visibility: hidden;
+}
+
+.DUMMY {
+    position: relative;
+    display: block;
+    width: 1px;
+    height: 1px;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
