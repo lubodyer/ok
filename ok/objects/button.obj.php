@@ -98,6 +98,12 @@ class OK_Object_Button extends OK_Object
      * @var boolean
      */
     protected $disabled = false;
+    
+    /**
+     * Specifies whether or not to extend object controller to client-side.
+     * @var boolean
+     */
+    protected $extend = true;
 
     /**
      * Sets or retrieves the height of the object.
@@ -224,7 +230,7 @@ class OK_Object_Button extends OK_Object
     protected $_accept = array('image', 'label', 'menu', 'sharedicon');
     protected $_events = array('onaction', 'onbeforetoggle', 'onblur', 'onclick', 'oncontextmenu', 'ondoubleclick', 'onfocus', 'onkeydown', 'onkeypress', 'onkeyup', 'onmousedown', 'onmouseout', 'onmouseover', 'onmouseup', 'ontoggle', 'onunload');
     protected $_objects = array('style' => 'OK_Style', 'istyle' => 'OK_Style');
-    protected $_params = array('accesskey', 'align', 'arrow', 'class', 'default', 'disabled', 'height', 'icon', 'label', 'menu', 'orientation', 'pack', 'padding', 'show_arrow', 'spacing', 'state', 'style', 'istyle', 'tabindex', 'title', 'type', 'width', 'wrap', 'valign', 'arrowsrc', 'minwidth', 'minheight');
+    protected $_params = array('accesskey', 'align', 'arrow', 'class', 'default', 'disabled', 'extend', 'height', 'icon', 'label', 'menu', 'orientation', 'pack', 'padding', 'show_arrow', 'spacing', 'state', 'style', 'istyle', 'tabindex', 'title', 'type', 'width', 'wrap', 'valign', 'arrowsrc', 'minwidth', 'minheight');
     protected $_scripts = array('button');
     protected $_styles = array('button');
     protected $_validate = array(
@@ -457,22 +463,23 @@ class OK_Object_Button extends OK_Object
         // --
 
         $accesskey = $this->accesskey && $this->accesskey != 'auto' ? ('a' . ord(strtoupper($this->accesskey))) : '';
-        $btn = $this->client->init('OK_Object_Button', $this->id, $this->tabindex, !$this->disabled, $this->class, $accesskey, $this->default);
-
-        if ($this->type == "toggle") {
-            $this->client->call($btn, 'setToggle', true);
-            if ($this->state)
-                $this->client->call($btn, 'setValue', true, true);
+        
+        // -
+        
+        if ($this->extend) {
+            $btn = $this->client->init('OK_Object_Button', $this->id, $this->tabindex, !$this->disabled, $this->class, $accesskey, $this->default);
+            if ($this->type == "toggle") {
+                $this->client->call($btn, 'setToggle', true);
+                if ($this->state)
+                    $this->client->call($btn, 'setValue', true, true);
+            }
+            $this->client->set($btn, 'async', $this->async);
+            if ($menu) {
+                $output[] = $menu->toHTML();
+                $this->client->call($btn, 'addMenu', $menu->id);
+            }
+            $this->process_events($btn);
         }
-
-        $this->client->set($btn, 'async', $this->async);
-
-        if ($menu) {
-            $output[] = $menu->toHTML();
-            $this->client->call($btn, 'addMenu', $menu->id);
-        }
-
-        $this->process_events($btn);
 
         // ---
 

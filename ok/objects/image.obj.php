@@ -171,7 +171,7 @@ class OK_Object_Image extends OK_Object
     {
         if (!$this->src) {
             trigger_error("Error creating image - src attribute is empty. Object output omitted.", E_USER_WARNING);
-            return EMPTY_STRING;
+            return '';
         }
 
         if ($this->html)

@@ -32,15 +32,34 @@ class OK_Object_Tab extends OK_Object
 
     protected $icon;
     protected $disabled = false;
-    protected $title;
+    protected $label = "";
     protected $service;
     protected $class;
-
-    protected $_params = array('class', 'disabled', 'icon', 'title', 'service');
+    
+    protected $app_id;
+    protected $_params = array('class', 'disabled', 'icon', 'label', 'service');
+    
+    protected function onbeforeload()
+    {
+        if ($this->engine) {
+            $this->app_id = $this->engine->app_id;
+        }
+    }
 
     protected function _toHTML()
     {
-        return $this->content->toHTML();
+        if ($this->icon) {
+            $this->label = $this->create('image', array(
+                'src' => $this->icon,
+                'app_id' => $this->app_id
+            ))->toHTML() . $this->label;
+        }
+        
+        if ($this->content->length) {
+            $this->label .= $this->content->toHTML();
+        }
+        
+        return $this->label;
     }
 
 }

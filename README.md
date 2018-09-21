@@ -4,9 +4,9 @@ Copyright (c) 2004-2018 Lubo Dyer. All rights reserved.
 
 ### Hello, "OK"!
 
-OK is a W3C-compliant software development model and run-time engine to **quickly prototype solutions that scale**.
+OK is a W3C-compliant software development model and run-time engine to **prototype solutions developer style**.
 
-OK provides **developer-style prototyping** and explores the idea of employing **objects that extend their properties and methods between multiple programming languages**, in this case between PHP, JavaScript, XML (XHTML) and CSS scripting languages - arguably the most popular toolset in the history of the Web.
+OK explores the idea of employing **objects that extend their properties and methods between multiple programming languages**, in this case between PHP, JavaScript, XML (XHTML) and CSS scripting languages - arguably the most popular toolset in the history of the Web.
 
 See OK in action at [okay-os.com](http://okay-os.com).
 

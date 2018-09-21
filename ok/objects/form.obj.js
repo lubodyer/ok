@@ -14,15 +14,20 @@
  * @class
  * @extends OK_Object
  */
-function OK_Object_Form(id, method, action)
+function OK_Object_Form(id, service, method, action)
 {
     this.id = id;
+    this.service = service;
     this.method = method;
     this.action = action;
     this.submitted = 0;
     this.tabindex = -1;
-    this.request = new OK_Request(this.action);
+    this.request = new OK_Request(this.service);
     this.request.form_id = this.id;
+    this.request.method = this.method;
+    if (this.action) {
+        this.request.uri = this.action;
+    };
     this.request.onprocess = function (e) {
         return ok.route(e, ok.get(this.form_id));
     };
@@ -31,6 +36,7 @@ function OK_Object_Form(id, method, action)
     };
 
     this.register();
+    this.capture("submit");
 }
 
 /** */
@@ -71,13 +77,12 @@ OK_Object_Form.prototype.submit = function (force)
     this.submitted = 1;
     this._scan(ok.$(this.id));
     this.request.send();
-    ok.events.route("submit", this);
+    this.bubble("submit");
 
     return 1;
 };
 
-OK_Object_Form.prototype._scan = function (node)
-{
+OK_Object_Form.prototype._scan = function (node) {
     for (var i = 0, c, n, v, l = node.childNodes.length; i<l; i++)
     {
         n = node.childNodes.item(i);
@@ -88,9 +93,9 @@ OK_Object_Form.prototype._scan = function (node)
             case "INPUT":
             case "TEXTAREA":
                 if (n.type == "file") {
-                    this.request.post.append(n.id, n.files[0]);
+                    this.request.post.append(n.name ? n.name : n.id, n.files[0]);
                 } else {
-                    this.request.add(n.id, n.value);
+                    this.request.add(n.name ? n.name : n.id, n.value);
                 };
                 break;
 
@@ -129,8 +134,10 @@ OK_Object_Form.prototype._scan = function (node)
     };
 };
 
-OK_Object_Form.prototype.toString = function ()
-{
+/**
+ *
+ */
+OK_Object_Form.prototype.toString = function () {
     var elements = this._scan(ok.$(this.id));
     var s = "";
     var len = elements.length;
@@ -140,3 +147,11 @@ OK_Object_Form.prototype.toString = function ()
     alert(s);
 };
 
+/**
+ *
+ */
+OK_Object_Form.prototype.__submit = function (e) {
+    e.stopPropagation();
+    e.preventDefault();
+    return this.submit();
+};

@@ -1,0 +1,10 @@
+{
+    "name": "ok/ok",
+    "description": "Quickly prototype solutions to scale.",
+    "require": {
+        "php": "^5.3.3 || ^7.0"
+    },
+    "autoload": {
+        "files": [ "ok/model/ok.obj.php" ]
+    }
+}

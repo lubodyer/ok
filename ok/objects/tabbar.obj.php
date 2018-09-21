@@ -64,7 +64,6 @@ class OK_Object_TabBar extends OK_Object
         if ($this->engine) {
             $this->app_id = $this->engine->app_id;
         }
-//      $this->bgcolor = $this->config->colors->threedface;
     }
 
     protected function _toHTML()
@@ -107,16 +106,7 @@ class OK_Object_TabBar extends OK_Object
                         "height"        => $this->tabsize
                     ));
 
-                    $tab_content = "";
-                    if ($tab->icon) {
-                        $tab_content = $this->create('image', array(
-                            'src' => $tab->icon,
-                            'app_id' => $this->app_id
-                        ));
-                    }
-                    $tab_content = $tab->title;
-
-                    $table->SetCellContent(1, 1, $tab_content);
+                    $table->SetCellContent(1, 1, $tab->toHTML());
                     $table->SetCellAttribute(1, 1, "align", $this->position == "left" ? "right" : "left");
                     $table->SetCellAttribute(1, 1, "id", $tabCellID);
                     $table->SetCellAttribute(1, 1, "style", "white-space: nowrap;");
@@ -147,7 +137,7 @@ class OK_Object_TabBar extends OK_Object
                     $tabsTable->SetCellContent($m+1, 1, $table->toHTML());
                     unset($table);
 
-                    $this->client->init('OK_Object_Tab', $tabID, $tab->title, null, !$tab->disabled, $tab->class);
+                    $this->client->init('OK_Object_Tab', $tabID, $tab->label, null, !$tab->disabled, $tab->class);
                     $this->client->call($ref, 'add', $tabID);
 
                     $tabs++;
@@ -173,7 +163,7 @@ class OK_Object_TabBar extends OK_Object
         {
             $this->add($this->create('tab', array(
                 'id' => $this->id . ':TTAB',
-                'title' => '...'
+                'label' => '...'
             )));
 
             for ($i = 0, $m = 0, $tabs = 0; $i < $this->content->length; $i++, $m++)
@@ -196,7 +186,7 @@ class OK_Object_TabBar extends OK_Object
                         "width"         => $this->tabsize
                     ));
 
-                    $table->SetCellContent(1, 1, $tab->title);
+                    $table->SetCellContent(1, 1, $tab->toHTML());
                     $table->SetCellAttribute(1, 1, "align", $this->align);
                     $table->SetCellAttribute(1, 1, "id", $tabCellID);
                     $table->SetCellAttribute(1, 1, "style", "white-space: nowrap;");
@@ -226,7 +216,7 @@ class OK_Object_TabBar extends OK_Object
                     $tabsTable->SetCellContent(1, $m+1, $table->toHTML());
                     unset($table);
 
-                    $this->client->init('OK_Object_Tab', $tabID, $tab->title, null, !$tab->disabled, $tab->class);
+                    $this->client->init('OK_Object_Tab', $tabID, $tab->label, null, !$tab->disabled, $tab->class);
                     $this->client->call($ref, 'add', $tabID);
 
                     $tabs++;

@@ -29,7 +29,7 @@ function OK_Object_Tree(id, tabindex, autoExpand, service, collapse)
     this.allowUnselect = false;
     this.nodes = [];
     this.selected = null;
-    this.html = 0;
+    this.html = 1;
 
     this.register(this);
 
@@ -119,7 +119,7 @@ OK_Object_Tree.prototype.getFormValue = function ()
  */
 OK_Object_Tree.prototype.__keydown = function (e)
 {
-    var key = ok.kb.event2key(e);
+    var key = ok.kb.key(e);
 
     var node = this.selected, index, parent;
     if (!node) {

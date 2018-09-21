@@ -83,6 +83,6 @@ class OK_Object_Style extends OK_Object
         } else
             throw new Exception("Unable to load stylesheet from empty source.");
 
-        return EMPTY_STRING;
+        return '';
     }
 }

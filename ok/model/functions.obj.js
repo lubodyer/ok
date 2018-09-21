@@ -162,10 +162,13 @@ ok.fn =
     /**
      * 
      */
-    extend: function (target, source) {
+    extend: function (target, source, soft) {
         var p;
         for (p in source) {
             if (source.hasOwnProperty(p)) {
+                if (soft && typeof target[p] !== undefined) {
+                    continue;
+                };
                 target[p] = source[p];
             };
         };

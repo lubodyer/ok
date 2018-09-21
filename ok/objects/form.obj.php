@@ -43,29 +43,43 @@ class OK_Object_Form extends OK_Object
      *
      * @var string
      */
-    protected $action;
-    protected $target;
+    protected $service = '';
+    protected $action = '';
+    protected $target = '';
     protected $method = 'post';
     protected $enctype = '';
     protected $autocomplete= '';
 
     protected $_events = array('onbeforesubmit', 'onsubmit', 'onprocess', 'onsuccess');
-    protected $_params = array('id', 'action', 'target', 'method', 'enctype', 'autocomplete');
+    protected $_params = array('id', 'service', 'action', 'target', 'method', 'enctype', 'autocomplete');
     protected $_scripts = array('form');
     protected $_validsate = array(
-        'method' => array('get', 'post')
+        'method' => array('get', 'post', 'GET', 'POST')
     );
+
+    protected function onbeforeload($params)
+    {
+        if ($this->engine) {
+            $this->service = $this->engine->app_id . '/' . $this->engine->service_id;
+        }
+        if ($this->ok->config->system->landing) {
+            $this->action = $this->ok->config->system->landing;
+        }
+    }
+
 
     protected function _toHTML()
     {
-        $ref = $this->client->init('OK_Object_Form', $this->id, $this->method, $this->action);
+        $this->method = strtoupper($this->method);
+
+        $ref = $this->client->init('OK_Object_Form', $this->id, $this->service, $this->method, $this->action);
         $this->process_events($ref);
 
         $form = "<form id='$this->id' ";
-        if ($this->action) {
-            $form .= "action='" . $this->ok->create_request($this->action) . "' ";
+        if ($this->service) {
+            $form .= "action='" . $this->ok->create_request($this->service) . "' ";
         }
-        $form .= "method='$this->method' enctype='$this->enctype' target='$this->target' style='width:100%;height:100%;'";
+        $form .= "method='$this->method' enctype='$this->enctype' target='$this->target'";
         if ($this->autocomplete) {
             $form .= " autocomplete='{$this->autocomplete}'";
         }

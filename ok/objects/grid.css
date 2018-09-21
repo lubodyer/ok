@@ -114,7 +114,7 @@
     cursor: Hand;
     cursor: Pointer;
     text-overflow: ellipsis;
-    line-height: 20px;
+    line-height: 32px;
 }
 
 .OK_GRID_CELL_SELECTED,

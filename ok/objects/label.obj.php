@@ -45,7 +45,6 @@ class OK_Object_Label extends OK_Object_Element
     // --
 
     protected $element = 'label';
-//  protected $style = 'overflow:hidden;border: 1px solid black;line-height:18px;';
 
     // --
 
@@ -59,13 +58,6 @@ class OK_Object_Label extends OK_Object_Element
      */
     protected function _toHTML()
     {
-        if (!$this->class && $this->style->{'padding-top'} === EMPTY_STRING) {
-            $this->style->{'padding-top'} = "7px";
-        }
-        if (!$this->class && $this->style->{'padding-bottom'} === EMPTY_STRING) {
-            $this->style->{'padding-bottom'} = "7px";
-        }
-
         $output = parent::_toHTML();
 
         $ref = $this->client->init("OK_Object_Label", $this->id, $this->for);

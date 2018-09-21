@@ -203,21 +203,8 @@ final class OK_Runtime extends OK_Interface
 
         // --
 
-        if ($service->hasAttribute('js') && $service->getAttribute('js')) {
-            $jsfile = $this->root . '/services/' . $service_id . '.js';
-            if (!is_file($jsfile)) {
-                throw new OK_Exception("Service JS controller not found.");
-            }
-
-            $this->ok->scripts->add($service_id);
-        }
-
         if ($service->hasAttribute('xml') && $service->getAttribute('xml')) {
             $this->ok->add($this->load($service_id));
-        }
-
-        if ($service->hasAttribute('css') && $service->getAttribute('css')) {
-            $this->ok->styles->add($service_id);
         }
 
         if ($service->hasAttribute('php') && $service->getAttribute('php')) {
@@ -227,6 +214,20 @@ final class OK_Runtime extends OK_Interface
             }
             self::$_shared['_program']->__run($phpname);
         }
+
+        if ($service->hasAttribute('css') && $service->getAttribute('css')) {
+            $this->ok->styles->add($service_id);
+        }
+
+        if ($service->hasAttribute('js') && $service->getAttribute('js')) {
+            $jsfile = $this->root . '/services/' . $service_id . '.js';
+            if (!is_file($jsfile)) {
+                throw new OK_Exception("Service JS controller not found.");
+            }
+
+            $this->ok->scripts->add($service_id);
+        }
+
 
         // --
 

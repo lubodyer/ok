@@ -263,8 +263,8 @@ final class OK_Client extends OK_Interface
      */
     public function alert($sMessage)
     {
-        $sMessage = addslashes($sMessage);
-        $this->execute($this->_alert . "(\"$sMessage\");");
+        $sMessage = $this->_alert . "(" . $this->_convert($sMessage) . ");";
+        $this->execute($sMessage);
     }
 
     /**
@@ -541,7 +541,7 @@ final class OK_Client extends OK_Interface
 
         trigger_error("Unable to convert param \"$param\".", E_USER_WARNING);
 
-        return EMPTY_STRING;
+        return '';
     }
 
     /**

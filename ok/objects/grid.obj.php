@@ -76,7 +76,7 @@ class OK_Object_Grid extends OK_Object
      * Sets or retrieves the height of the row in pixels.
      * @var int
      */
-    protected $rowheight = 28;
+    protected $rowheight = 40;
 
     /**
      * Sets or retrieves the custom style declarations.

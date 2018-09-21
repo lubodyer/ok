@@ -650,7 +650,7 @@ abstract class OK_Object extends OK_Interface implements Serializable
             if (isset($this->_event_data[$name]))
                 return $this->_event_data[$name];
             else
-                return EMPTY_STRING;
+                return '';
         }
 
         return parent::__get($name);

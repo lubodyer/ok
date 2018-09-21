@@ -39,115 +39,118 @@ body {
     background: $background;
     overflow: hidden;
 
-    text-rendering: optimizelegibility;
-    font-smoothing: antialiased;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
     font-family: "Open Sans", Tahoma, Ubuntu, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 18px;
     font-weight: normal;
-    line-height: 140%;
 }
 
 textarea,
 select,
 select[disabled],
 option,
-input
-{
-	font-family: "Open Sans", Tahoma, Ubuntu, sans-serif;
+input[type="text"],
+input[type="password"],
+label {
+    font-family: "Open Sans", Tahoma, Ubuntu, sans-serif;
 
-	font-size: 15px;
-	line-height: 21px;
+    font-size: 15px;
+    line-height: 21px;
 
-	background: transparent;
+    background: transparent;
 
-	outline: 0;
+    outline: 0;
 }
 
-input
-{
-	-webkit-appearance: none;
+input[type="text"],
+input[type="password"] {
+    -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 
     border-radius: 0;
-	-webkit-border-radius: 0;
+    -webkit-border-radius: 0;
 
-	background: transparent;
-	color: $text;
+    background: transparent;
+    color: $text;
 
-	border: 0;
-	border-bottom: 2px solid $border;
+    border: 0;
+    border-bottom: 2px solid $border;
 
-	padding: 6px;
-	padding-top: 6px;
-	padding-left: 0;
-	padding-right: 0;
+    padding: 6px;
+    padding-top: 6px;
+    padding-left: 0;
+    padding-right: 0;
 
-	margin: 0;
-	margin-bottom: 4px;
-	outline: 0;
+    margin: 0;
+    margin-bottom: 4px;
+    outline: 0;
+
+    width: 100%;
 }
 
-input:focus
+input[type="text"]:focus,
+input[type="password"]:focus
 {
-	border-bottom: 2px solid $highlight;
+    border-bottom: 2px solid $highlight !important;
 }
 
-input:-webkit-autofill
+input[type="text"]:-webkit-autofill,
+input[type="password"]:-webkit-autofill
 {
 
 }
 
-input[disabled]
+input[type="text"][disabled],
+input[type="password"][disabled]
 {
     color: $graytext;
-	border-bottom: 2px solid transparent;
+    border-bottom: 2px solid transparent;
 }
 
-input[placeholder]
+input[type="text"][placeholder],
+input[type="password"][placeholder]
 {
     text-overflow: ellipsis;
 }
 
-input::placeholder
+input[type="text"]::placeholder,
+input[type="password"]::placeholder
 {
     color: $graytext;
 }
 
 select
 {
-	border: 0;
-	border-bottom: 2px solid $border;
+    border: 0;
+    border-bottom: 2px solid $border;
 
-	padding: 4px;
-	padding-left: 0;
+    padding: 4px;
+    padding-left: 0;
     padding-top: 8px;
 
-	margin: 0;
-	outline: 0;
+    margin: 0;
+    outline: 0;
 }
 
 select[disabled]
 {
-	border: 0 !important;
-	border-bottom: 2px solid transparent !important;
-	padding: 6px !important;
-	padding-left: 0 !important;
+    border: 0 !important;
+    border-bottom: 2px solid transparent !important;
+    padding: 6px !important;
+    padding-left: 0 !important;
 
-	color: $graytext !important;
+    color: $graytext !important;
 
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 
-	text-overflow: "";
+    text-overflow: "";
 }
 
 select::-ms-expand {
-	display: none;
+    display: none;
 }
 
 option {

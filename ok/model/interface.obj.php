@@ -22,7 +22,7 @@
  */
 
 /**
- * Object - OK System Object
+ * Interface - OK System Object
  *
  * This is the abstract base class for the entire OK Object Model. This object does not expose
  * public properies or methods.

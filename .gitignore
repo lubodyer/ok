@@ -1,6 +1,8 @@
 **/application.local.ini
-/ok.local.ini
+**/ok.local.ini
 /.ok/cache/*
 /.ok/log/*
 /.ok/sessions/*
 /.ok/temp/*
+vendor/
+composer.lock

@@ -33,6 +33,7 @@ function OK_Request(cmd, container)
     this.length = 0;
     this.method = "POST";
     this.container = container;
+    this.uri = ok.request.uri ? ok.request.uri : "/";
 
     if (typeof cmd == "string") {
         this.cmd = new OK_Command(cmd);
@@ -46,14 +47,16 @@ function OK_Request(cmd, container)
 
 OK_Request.prototype.add = function (name, value)
 {
-    this.cmd.add(name, value);
+    //~ this.cmd.add(name, value);
+    this.post.append(name, value);
 };
 
 OK_Request.prototype.send = function ()
 {
-    this.loading = 1;
+    var idx = this.id,
+        uri = this.uri;
 
-    var idx = this.id;
+    this.loading = 1;
 
     this.http = new XMLHttpRequest();
     this.http.onerror = function (e) {
@@ -81,22 +84,14 @@ OK_Request.prototype.send = function ()
 
     // --
 
-    this.method = "POST";
-
-//  ok.request.uri = "/";
-//  var uri = ok.request.uri ? ok.request.uri : window.location.protocol + "//" + window.location.host + window.location.pathname;
-    var uri = ok.request.uri ? ok.request.uri : "/";
-    var cmd = this.cmd.encode();
-
-
     if (this.method == "POST") {
         if (typeof FormData != "undefined") {
-            this.post.append(this.name, cmd);
+            this.post.append(this.name, this.cmd.encode());
         } else {
-            this.post.set(this.name, cmd);
+            this.post.set(this.name, this.cmd.encode());
         };
     } else {
-        uri += "?" + this.name + "=" + cmd;
+        uri += "?" + this.name + "=" + this.cmd.encode();
     };
 
     this.http.open(this.method, uri, this.async);

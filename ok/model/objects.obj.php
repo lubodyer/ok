@@ -57,7 +57,7 @@ final class OK_Objects
         {
             $found = false;
             if ($ok->app) {
-                $filename = OK_PROGRAMS . '/' . $ok->app->app_id . '/objects/' . $sObjectName . '.obj.php';
+                $filename = $ok->app->root . '/objects/' . $sObjectName . '.obj.php';
                 if (file_exists($filename)) {
                     require_once $filename;
                     $found = true;

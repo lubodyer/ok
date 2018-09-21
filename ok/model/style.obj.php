@@ -68,7 +68,7 @@ class OK_Style implements Serializable
         elseif (isset($this->_attributes[$name]))
             return $this->_attributes[$name];
         else
-            return EMPTY_STRING;
+            return '';
     }
 
     /**

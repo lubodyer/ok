@@ -58,7 +58,7 @@ var ok =
         webkit: null,
         ie: null
     },
-    colors: {},    
+    colors: {},
     cursor: "",
     debug: function (message, level, module)
     {
@@ -564,11 +564,6 @@ ok.request = function (command, params, events, send, container)
     return r;
 };
 
-ok.event2key = function(e)
-{
-    return this.kb.key(e);
-};
-
 ok.thread = function (script, delay)
 {
     return window.setTimeout(function ()
@@ -691,7 +686,7 @@ ok.history =
             return window.location.hash.substr(1);
         };
     },
-    set: function (location) {
+    set: function (location, replace) {
         if (this._current != location) {
             if (this._current) {
                 this._back.push(this._current);
@@ -699,7 +694,11 @@ ok.history =
             this._forward = [];
             this._current = location;
             if (window.history.pushState) {
-                window.history.pushState(null, null, this._current);
+                if (replace) {
+                    window.history.replaceState(null, null, this._current);
+                } else {
+                    window.history.pushState(null, null, this._current);
+                }
             } else {
                 window.location.hash = this._current;
             };

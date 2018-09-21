@@ -146,7 +146,7 @@ class OK_Object_Box extends OK_Object
         $items = $this->content->length;
 
         if (!$items)
-            return EMPTY_STRING;
+            return '';
 
         if ($items == 1 && !$this->important)
             return $this->content->toHTML();

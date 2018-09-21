@@ -43,8 +43,8 @@ class OK_Object_Input extends OK_Object
     protected $pattern = "";
     protected $novalidate = false;
     protected $placeholder;
-    protected $width = "100%";
-    protected $height = "auto";
+    protected $width = '';
+    protected $height = 'auto';
     protected $select = false;
     protected $title = "";
 
@@ -66,12 +66,15 @@ class OK_Object_Input extends OK_Object
             $this->style->height = $this->height;
         };
 
-        // hack
         if ($this->title) {
             $this->placeholder = $this->title;
         }
 
-        $output = "<input type='$this->type' onfocus='ok.get(this.id).focus();' id='{$this->id}'";
+        if (!$this->name) {
+            $this->name = $this->id;
+        }
+
+        $output = "<input type='$this->type' onfocus='ok.get(this.id).focus();' id='{$this->id}' name='{$this->name}'";
         $output .= " value='{$this->value}'";
         $output .= " autocorrect='{$this->autocorrect}'";
         $output .= " autocapitalize='{$this->autocapitalize}'";

@@ -157,6 +157,7 @@ OK_Object_Grid.prototype.draw = function (soft)
     // --
 
     if (!soft) {
+        ok.objects.removeAll(_d, 1);
         _d.innerHTML = "";
     };
 
@@ -276,10 +277,10 @@ OK_Object_Grid.prototype.draw = function (soft)
 
     // --
 
-    this.bubble("redraw");
+    this.bubble({type: "redraw", source: this, rows: rows, from: this._row, to: this._max});
 };
 
-//------------------------------------------------------------------------------/
+// --
 
 /**
  *

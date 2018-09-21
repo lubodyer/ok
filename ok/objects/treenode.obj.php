@@ -39,7 +39,7 @@ class OK_Object_TreeNode extends OK_Object
     protected $title;
     protected $expanded = false;
     protected $selected = false;
-    protected $load = true;
+    protected $load = false;
     protected $dropspot = false;
     protected $spacing = 0;
 
@@ -132,9 +132,8 @@ class OK_Object_TreeNode extends OK_Object
 
         if ($this->parent->_type == 'tree' && $max == 1)
             $this->expanded = true;
-        elseif (!$this->load) {
+        elseif ($this->load) {
             $this->expanded = false;
-            $this->content->clear();
         }
 
         // --
@@ -147,7 +146,7 @@ class OK_Object_TreeNode extends OK_Object
 
         // --
 
-        $this->_client_ref = $this->client->init('OK_Object_TreeNode', $this->id, $this->label, $this->icon ? $icon->cache_id : null, $this->isParentExpanded(), !$this->disabled, $this->selected, $this->expanded, $this->load, $this->root->html, 0);
+        $this->_client_ref = $this->client->init('OK_Object_TreeNode', $this->id, $this->label, $this->icon ? $icon->cache_id : null, $this->isParentExpanded(), !$this->disabled, $this->selected, $this->expanded, !$this->load, $this->root->html, 0);
         $this->client->call($this->parent->_client_ref, 'add', $this->_client_ref);
         foreach ($this->custom as $key => $val) {
             $this->client->set($this->_client_ref, "custom['$key']", $val);
@@ -167,6 +166,10 @@ class OK_Object_TreeNode extends OK_Object
             }
         }
         
+        if ($this->load) {
+            $this->content->clear();
+        }
+        
         // --
 
         $html = "";
@@ -177,14 +180,15 @@ class OK_Object_TreeNode extends OK_Object
                     $image_modifier = ($max > 1) ? 'top' : 'single';
                 elseif ($index == $max)
                     $image_modifier = 'bottom';
-                $image_name = $len || !$this->load ? ($this->expanded ? 'minus' : 'plus') : 'branch';
+                $image_name = $len || $this->load ? ($this->expanded ? 'minus' : 'plus') : 'branch';
             } else
-                $image_name = $len ? $this->expanded ? 'minus' : 'plus' : 'blank';
+                $image_name = $len || $this->load ? ($this->expanded ? 'minus' : 'plus') : 'blank';
 
             $image = '';
             if (!($index == 1 && $max==1 && $this->parent->_type == 'tree')) {
                 $img = $this->create('image', array('id' => $this->id.':nav', 'src' => $this->root->images . '/' . $image_name . $image_modifier . '.gif'));
-                $image = sprintf("<td id='%s:nav' class='nav' style='white-space:nowrap;'>%s</td><td>%s</td>", $this->id, $prepend, $img->toHTML());
+                $td = $prepend ? sprintf('<td class="prepend">%s</td>', $prepend) : '';
+                $image = sprintf('%s<td style="width: 32px; line-height: 0; font-size: 0;">%s</td>', $td, $img->toHTML());
             }
 
             if ($this->parent->_type == 'tree' && $max==1)

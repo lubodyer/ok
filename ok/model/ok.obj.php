@@ -25,12 +25,7 @@
 define('OK_REQUEST_ID', uniqid('req'));
 
 /** */
-define('OK_VERSION', 5.1);
-
-/** */
-if (!defined('EMPTY_STRING')) {
-    define('EMPTY_STRING', '');
-}
+define('OK_VERSION', 5.2);
 
 // --
 
@@ -44,7 +39,7 @@ require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'interface.obj.php';
  *
  * @package System
  */
-class OK extends OK_Interface
+final class OK extends OK_Interface
 {
     /**#@+
      * OK Status Constants.
@@ -132,11 +127,6 @@ class OK extends OK_Interface
      * @var OK_Response
      */
     public $response;
-
-    /**
-     *
-     */
-    protected $root;
 
     /**
      * Retrieves reference to the {@link OK_Session session} object.
@@ -230,19 +220,26 @@ class OK extends OK_Interface
     protected $_sent = false;
 
     /** */
-    protected function __construct($root)
+    protected function __construct()
     {
-        if (!is_dir(realpath($root))) {
-            throw new Exception("Invalid document root.");
-        }
-
-        $this->root = $root;
         $this->_stats['started'] = $this->stamp();
         $this->_status = self::INITIALIZING;
 
         // --
 
-        $model = $this->root . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR;
+        if (!defined('OK_ROOT')) {
+            define('OK_ROOT', realpath(dirname(dirname(__FILE__))));
+        }
+
+        if (!is_dir(OK_ROOT)) {
+            throw new Exception("Access denied to root directory.");
+        }
+
+        define('OK_DIR', dirname(OK_ROOT));
+
+        // --
+
+        $model = OK_ROOT . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR;
 
         require_once $model . 'config.obj.php';
         require_once $model . 'client.obj.php';
@@ -278,34 +275,28 @@ class OK extends OK_Interface
 
         if (!defined('OK_PROGRAMS')) {
             $programs = $this->config->ok->programs;
-            if (!preg_match("/^\\|\//", $programs)) {
-                $programs = OK_ROOT . DIRECTORY_SEPARATOR . $programs;
+            if (!$programs || $programs === 'auto') {
+                $programs = realpath(OK_DIR . '/programs');
             }
             define('OK_PROGRAMS', $programs);
+            unset($programs);
+        }
+
+        if (!is_dir(OK_PROGRAMS)) {
+            throw new Exception("Access denied to programs directory.");
         }
 
         if (!defined('OK_DATA')) {
-            $opt = $this->config->ok->data;
-            if ($opt[0] != "\\" && $opt[0] != "/")
-                $opt = OK_ROOT . DIRECTORY_SEPARATOR . $opt;
-            define('OK_DATA', $opt);
+            $data = $this->config->ok->data;
+            if (!$data || $data === 'auto') {
+                $data = OK_ROOT . realpath(OK_DIR . '/.ok');
+            }
+            define('OK_DATA', $data);
+            unset($data);
         }
 
-        // --
-
-        if ($this->config->system->safe_mode)
-        {
-            if (!is_dir(realpath(OK_PROGRAMS)))
-                throw new Exception("Access denied to programs directory.");
-
-            if (!is_dir(realpath(OK_DATA)))
-                throw new Exception("Access denied to data directory.");
-        }
-
-        // --
-
-        if (!is_dir(OK_DATA) && !mkdir(OK_DATA, 0777, true)) {
-            throw new Exception("Access denied to create temporary directory.");
+        if (!is_dir(OK_DATA)) {
+            throw new Exception("Access denied to data directory.");
         }
 
         if (!is_dir(OK_DATA . '/log') && !mkdir(OK_DATA . '/log', 0777, true)) {
@@ -322,6 +313,10 @@ class OK extends OK_Interface
         }
 
         // --
+
+        if (!ini_get('date.timezone') && !getenv('TZ')) {
+            date_default_timezone_set(@date_default_timezone_get());
+        }
 
         ini_set("date.timezone", $this->config->system->default_timezone);
         date_default_timezone_set($this->config->system->default_timezone);
@@ -528,8 +523,6 @@ class OK extends OK_Interface
 
     /**
      *
-     *
-     *
      */
     public function execute($command, array $params = array())
     {
@@ -538,7 +531,6 @@ class OK extends OK_Interface
 
     /**
      *
-     * @todo
      */
     public function fetch($command, $params = array(), $xml = false)
     {
@@ -551,8 +543,7 @@ class OK extends OK_Interface
      */
     public function get($sObjectID)
     {
-//      $this->debug(sprintf("* Attempt to access object id \"%s\".", $sObjectID), 9);
-        return $this->objects->get($ssObjectID);
+        return $this->objects->get($sObjectID);
     }
 
     /**
@@ -561,8 +552,6 @@ class OK extends OK_Interface
      */
     public function load($xml, $bAddToResponse = false)
     {
-
-
         $_xml = new DOMDocument('1.0', 'utf-8');
         $_xml->loadXML($xml);
 
@@ -582,7 +571,7 @@ class OK extends OK_Interface
 
         // Validate OK XML root tag
         if ($_xml->documentElement->tagName != "ok") {
-            trigger_error("Error parsing service \"$service_id\". Interface files must start with \"ok\" tag.", E_USER_ERROR);
+            trigger_error("Error parsing XML: Interface files must start with \"ok\" tag.", E_USER_ERROR);
         }
 
         // Locate interface section
@@ -656,14 +645,10 @@ class OK extends OK_Interface
     /**
      *
      */
-    public static function start($root = null)
+    public static function start()
     {
-        if (!$root) {
-            $root = realpath(dirname(__FILE__) . '/../');
-        }
-
        if (!isset(self::$_instance))
-           self::$_instance = new OK($root);
+           self::$_instance = new OK();
        else
            throw new Exception("Already started.");
 
@@ -700,7 +685,7 @@ class OK extends OK_Interface
         $this->content->write($text);
     }
 
-    // ---------------
+    // --
 
     /**
      *
@@ -930,13 +915,13 @@ class OK extends OK_Interface
     {
         if ($this->_status === self::INITIALIZING && !defined("OK_NO_INIT"))
         {
-            $final = file_get_contents($this->root . "/ok.xml");
+            $final = file_get_contents(OK_ROOT . "/ok.xml");
             $final = str_replace("OK_LANGUAGE", $this->response->language, $final);
 
             // --
 
             $item_id = "/ok/system/style";
-            $fname = $this->root . "/ok.css";
+            $fname = OK_ROOT . "/ok.css";
             if ($_output = $this->cache->get($item_id, $fname)) {
                 $_output = array($_output);
             } else {
@@ -964,7 +949,7 @@ class OK extends OK_Interface
             $_output = array();
             $item_id = "/ok/system/script";
             for ($i = 0, $l = count($this->_model); $i < $l; $i++) {
-                $fname = $this->root . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . $this->_model[$i] . ".obj.js";
+                $fname = OK_ROOT . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . $this->_model[$i] . ".obj.js";
                 $_mtime = filemtime($fname);
                 if ($_mtime > $mtime) {
                     $mtime = $_mtime;
@@ -981,7 +966,7 @@ class OK extends OK_Interface
                     require_once OK_ROOT . '/model/script.obj.php';
                 }
                 for ($i = 0, $l = count($this->_model); $i < $l; $i++) {
-                    $fname = $this->root . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . $this->_model[$i] . ".obj.js";
+                    $fname = OK_ROOT . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . $this->_model[$i] . ".obj.js";
                     $__output = preg_replace_callback(self::FILTER_SCRIPT, array($this, '____script'), file_get_contents($fname));
                     if ($this->config->system->minify) {
                         $__output = OK_Script::process($__output);
@@ -1114,11 +1099,6 @@ class OK extends OK_Interface
                 }
             }
 
-            $script_output = $this->client->_get(true);
-            if ($script_output) {
-                $xml .= sprintf("<script><![CDATA[%s]]></script>", $script_output);
-            }
-
             foreach ($this->_dialogs->items as $dialog)
             {
                 $xml .= '<dialog id="' . $dialog['id'] . '"';
@@ -1154,8 +1134,7 @@ class OK extends OK_Interface
                 $xml .= "</dialog>";
             }
 
-            foreach ($this->scripts->items as $index => $item)
-            {
+            foreach ($this->scripts->items as $index => $item) {
                 $_item_id = $item['id'];
                 $item_id = md5($_item_id);
                 $item_app = $item['app_id'];
@@ -1170,20 +1149,22 @@ class OK extends OK_Interface
                 }
             }
 
-            foreach ($this->styles->items as $index => $item)
-            {
+            foreach ($this->styles->items as $index => $item) {
                 $_item_id = $item['id'];
                 $item_id = md5($_item_id);
                 $item_app = $item['app_id'];
                 $item_src = $item['name'];
-                if ($this->session->instance->is_cached($_item_id))
+                if ($this->session->instance->is_cached($_item_id)) {
                     $xml .= "<require type='style' id='$item_id' app_id='$item_app' src='$item_src'/>";
-                else
-                {
+                } else {
                     $item_output = $this->___style($item['app_id'], $item['name']);
                     $xml .= "<style id='$item_id' type='library'><![CDATA[$item_output]]></style>";
                     $this->session->instance->cache($_item_id);
                 }
+            }
+
+            if ($script_output = $script_output = $this->client->_get(true)) {
+                $xml .= sprintf("<script><![CDATA[%s]]></script>", $script_output);
             }
 
             if ($output) {
@@ -1545,7 +1526,7 @@ class OK extends OK_Interface
         $ext = "js";
         if ($app_id == '.') {
             $id = "/ok/script/object/$src";
-            $dirName = $this->root . '/objects';
+            $dirName = OK_ROOT . '/objects';
             $ext = "obj.js";
         } elseif ($app_id[0] == '.') {
             $id = "/ok/script/system/program/" . substr($app_id, 1) . "/service/". $src;
@@ -1608,7 +1589,7 @@ class OK extends OK_Interface
     {
         if ($app_id == '.') {
             $id = "/ok/style/shared/$src";
-            $dirName = $this->root . '/objects';
+            $dirName = OK_ROOT . '/objects';
         } elseif ($app_id[0] == '.') {
             $id = "/ok/style/system/program/".substr($app_id, 1)."/service/$src";
             $dirName = OK_ROOT . '/programs/' . substr($app_id, 1) . '/services';
@@ -1672,11 +1653,11 @@ class OK extends OK_Interface
                 $item = $item_types[$item_type];
 
                 if ($app_id == '.') {
-                    $dirName = $this->root;
+                    $dirName = OK_ROOT;
                 } elseif ($app_id[0] == '.') {
-                    $dirName = $this->config->ok->root . '/programs/' . substr($app_id, 1);
+                    $dirName = OK_ROOT . '/programs/' . substr($app_id, 1);
                 } else {
-                    $dirName = $this->config->ok->programs . '/' . $app_id;
+                    $dirName = OK_PROGRAMS . '/' . $app_id;
                 }
 
                 $fileName = $dirName . '/' . $item['d'] . '/' . $item_name . '.' . $item_ext;

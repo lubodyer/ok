@@ -12,57 +12,71 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
-.OK_TREE {}
-
-.OK_TREE .nav
-{
-    padding-right: 2px;
-    white-space: nowrap;
+.OK_TREE {
+    width: 100%;
+    height: 40px;
 }
 
-.OK_TREE .icon
-{
-    padding-right: 2px;
+.OK_TREE * {
+    transition: background-color 0.4s ease-in, color 0.4s ease-in;
+    -webkit-transition: background-color 0.4s ease-in, color 0.4s ease-in;
+}
+
+.OK_TREE .prepend {
+    width: 32px;
+    white-space: nowrap;
+    font-size: 0;
+    line-height: 0;
+}
+
+.OK_TREE .icon {
+    line-height: 40px;
+    max-width: 40px;
 }
 
 .OK_TREE .item,
-.OK_TREE .changed,
 .OK_TREE .selected,
 .OK_TREE .blured,
-.OK_TREE .disabled
-{
-    padding: 4px;
+.OK_TREE .disabled {
+    
 
     white-space: nowrap;
 
     color: $text;
 
-    font-size: 14px;
+    font-size: 15px;
     line-height: 32px;
+    vertical-align: middle;
+    padding-left: 4px;
+}
+
+.OK_TREE .selected, .OK_TREE .selected * {
+    transition: background-color 0.4s ease-in, color 0.4s ease-in;
+    -webkit-transition: background-color 0.4s ease-in, color 0.4s ease-in;
+}
+
+.OK_TREE .item:hover, .OK_TREE .item:hover * {
+    background: $threedface !important;
 }
 
 .OK_TREE .selected,
-.OK_TREE .selected *
-{
-    background: $highlight !important;
-    color: $highlighttext !important;
+.OK_TREE .selected * {
+    background-color: $highlight !important;
+    color: $highlighttext !important;    
 }
 
 .OK_TREE .blured,
-.OK_TREE .blured *
-{
+.OK_TREE .blured * {
     color: $inactivetext !important;
     background-color: $inactive !important;
 }
 
 .OK_TREE .disabled,
-.OK_TREE .disabled *
-{
+.OK_TREE .disabled * {
     color: $graytext !important;
 }
 
-.OK_TREE .disabled img
-{
+.OK_TREE .disabled img {
     opacity: 0.4;
 }
 

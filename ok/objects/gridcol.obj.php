@@ -84,7 +84,7 @@ class OK_Object_GridCol extends OK_Object
     protected function _toHTML()
     {
         $this->client->call($this->client->get($this->parent->parent->id), 'addcol', $this->client->init('OK_Object_GridCol', $this->title, $this->width, $this->align, $this->sort, $this->filter, $this->padding, $this->style->toString()));
-        return EMPTY_STRING;
+        return '';
     }
 
 }

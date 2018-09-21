@@ -30,18 +30,20 @@ class OK_Object_Script extends OK_Object
 {
     /**
      *
-     *
      */
     public $_type = 'script';
 
     /**
      *
-     *
      */
-    protected $src;
-
+    protected $src = "";
+    
     /**
      *
+     */
+    protected $type = 'text/javascript';
+
+    /**
      *
      */
     protected $app_id = "";
@@ -52,10 +54,11 @@ class OK_Object_Script extends OK_Object
      */
 
     protected $_app_id;
-    protected $_params = array('src', 'app_id');
+    protected $_params = array('src', 'type', 'app_id');
 
     protected $_validate = array(
         'src'   => 'string',
+        'type'   => 'string',
         'app_id'    => 'string'
     );
 
@@ -74,18 +77,18 @@ class OK_Object_Script extends OK_Object
      */
     protected function _toHTML()
     {
-        if ($this->src)
-        {
+        if ($this->src) {
             if ($this->app_id) {
                 $this->_app_id = $this->app_id;
             }
 
             $GLOBALS['ok']->scripts->add($this->src, $this->_app_id);
         }
-        else
-        {
+        else if ($this->type === 'text/javascript') {
             $this->client->execute($this->content->toHTML());
-        };
+        } else if ($this->content->length) {
+            return sprintf('<script id="%s" type="%s">%s</script>', $this->id, $this->type, $this->content->toHTML());
+        }
 
         return "";
     }

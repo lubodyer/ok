@@ -84,7 +84,7 @@ class OK_Object_Tree extends OK_Object
         {
             $state = $prepend_array[$i];
             if ($state) {
-                $img = $this->create('image', array('src' => $this->images . '/' . ($skin ? ($state == 1 ? 'line' : 'linebottom') : 'blank') . '.gif'), array(), false, true);
+                $img = $this->create('image', array('src' => $this->images . '/' . ($this->skin ? ($state == 1 ? 'line' : 'linebottom') : 'blank') . '.gif'), array(), false, true);
                 $prepend_string .= $img->toHTML();
                 $img->destroy();
             }
