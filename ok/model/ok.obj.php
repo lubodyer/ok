@@ -289,7 +289,7 @@ final class OK extends OK_Interface
         if (!defined('OK_DATA')) {
             $data = $this->config->ok->data;
             if (!$data || $data === 'auto') {
-                $data = OK_ROOT . realpath(OK_DIR . '/.ok');
+                $data = realpath(OK_DIR . '/.ok');
             }
             define('OK_DATA', $data);
             unset($data);
